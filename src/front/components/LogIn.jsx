@@ -16,7 +16,7 @@ const handleChange = (event) =>{
 
     return (
         <div className="flex bg-gray-800 content-between w-4xl m-auto mt-[100px] h-screen">
-
+            
             <img
                 src={imageURL} />
 
