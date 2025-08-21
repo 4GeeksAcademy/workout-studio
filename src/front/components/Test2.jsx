@@ -7,6 +7,7 @@ const logInSignUp= () => {
 
   const handleChange = (event) => {
     const { id, value } = event.target;
+    console.log(event.target.value)
     setCredentials((prev) => ({ ...prev, [id]: value }));
   };
 
@@ -72,6 +73,13 @@ const logInSignUp= () => {
               <label className="p-4 text-amber-400 font-bold" htmlFor="confirmPassword">Confirm Password</label>
             </div>
           )}
+
+          {!logIn && (
+           <div>
+            <input id="trainer" type="checkbox" onClick={handleChange} />
+            <label className="p-4 text-amber-400 font-bold" htmlFor="trainer"> Are you a trainer? </label>
+           </div> 
+          )}
         </form>
 
         <button
@@ -83,7 +91,7 @@ const logInSignUp= () => {
       </div>
 
       {!logIn && (
-        <img src={imageURL} alt="random" />
+        <img className="animate-pulse" src={imageURL} alt="random" />
       )}
     </div>
   );
