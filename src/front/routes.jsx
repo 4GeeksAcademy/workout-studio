@@ -22,6 +22,7 @@ export const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Route index element={<Home />} />
         <Route path="single/:theId" element={<Single />} />
         <Route path="demo" element={<Demo />} />
@@ -34,6 +35,9 @@ export const router = createBrowserRouter(
         <Route path="test2" element={<Test2 />} />
 =======
 
+=======
+        
+>>>>>>> f708852ae44022f35abf0c64372ebad71409c187
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Home />} />
         <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
@@ -43,8 +47,12 @@ export const router = createBrowserRouter(
         <Route path="/test" element={<Test />} />
         <Route path="/test2" element={<Test2 />} />
         <Route path="/section" element={<ExercisesSection />} />
+<<<<<<< HEAD
 >>>>>>> 4063261 (:sparkles: Card implementation)
 >>>>>>> 21b8c9c4ee06baaf17c6397e8c8c20c210318a8d
+=======
+
+>>>>>>> f708852ae44022f35abf0c64372ebad71409c187
       </Route>
     )
 );
