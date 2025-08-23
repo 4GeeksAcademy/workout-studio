@@ -29,19 +29,6 @@ export const Home = () => {
     return (
         <>
             <JumbotronCarousel />
-            <div className="flex flex-col items-center mt-8">
-                <h1 className="text-3xl font-bold text-yellow-400 mb-4">Hello Rigo!!</h1>
-                <img src={rigoImageUrl} className="w-32 h-32 rounded-full mb-3" alt="Rigo Baby" />
-                <div className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-2 rounded">
-                    {store.message ? (
-                        <span>{store.message}</span>
-                    ) : (
-                        <span className="text-red-600">
-                            Loading message from the backend (make sure your python 🐍 backend is running)...
-                        </span>
-                    )}
-                </div>
-            </div>
         </>
     );
 };

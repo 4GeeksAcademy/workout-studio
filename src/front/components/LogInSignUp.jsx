@@ -1,15 +1,22 @@
 import React, { useState } from "react";
 
-const logInSignUp= () => {
+const LogInSignUp= () => {
   const imageURL = `https://picsum.photos/id/237/${window.innerHeight}/0`;
   const [credentials, setCredentials] = useState({ username: "", password: "", email: "", confirmPassword: "" });
   const [logIn, setLogIn] = useState(true);
+  const [trainer, setTrainer] = useState(false)
 
   const handleChange = (event) => {
     const { id, value } = event.target;
-    console.log(event.target.value)
+    console.log(event.target.checked)
     setCredentials((prev) => ({ ...prev, [id]: value }));
   };
+
+  const checkTrainer = (e) =>{
+     const { id, checked} = e.target;
+    setTrainer((prev) => ({ ...prev, [id]: checked }));
+    console.log(trainer[checked])
+  }
 
   const toggleForm = () => setLogIn((prev) => !prev);
 
@@ -76,7 +83,7 @@ const logInSignUp= () => {
 
           {!logIn && (
            <div>
-            <input id="trainer" type="checkbox" onClick={handleChange} />
+            <input id="trainer" type="checkbox" onClick={checkTrainer} />
             <label className="p-4 text-amber-400 font-bold" htmlFor="trainer"> Are you a trainer? </label>
            </div> 
           )}
@@ -97,4 +104,4 @@ const logInSignUp= () => {
   );
 };
 
-export default logInSignUp;
+export default LogInSignUp;

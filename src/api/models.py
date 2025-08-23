@@ -6,12 +6,11 @@ db = SQLAlchemy()
 
 class User(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(50))
     email: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(nullable=False)
-    is_active: Mapped[bool] = mapped_column(Boolean(), nullable=False)
-    user_type: Mapped[int] = mapped_column(Integer)
+    is_trainer: Mapped[bool] = mapped_column(Boolean(), nullable=False)
  
-
     def serialize(self):
         return {
             "id": self.id,
@@ -19,5 +18,26 @@ class User(db.Model):
             # do not serialize the password, its a security breach
         }
 
-class Ejercicio(db.Model):
+class Workout(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)   
+    name: Mapped[str] = mapped_column(String(50))
+    section: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    machine: Mapped[str] = mapped_column(nullable=False)
+    link: Mapped[str] = mapped_column(String(255), nullable=True)
+    media: Mapped[str] = mapped_column(String(255), nullable=True)
+    
+    def serialize(self):
+        return {
+            "id": self.id,
+            "section": self.section,
+        }    
+
+
+class Favorites(db.Model):
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    usuario_id: Mapped[int] = mapped_column(db.ForeignKey("user.id"))
+    usuario: Mapped["User"] = db.relationship("User", backref="favorites")
+
+    exercise_id: Mapped[int] = mapped_column(db.ForeignKey("workout.id"))
+    exercise: Mapped["Workout"] = db.relationship("Workout", backref="favorited_by")
