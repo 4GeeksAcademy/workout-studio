@@ -9,7 +9,8 @@ class User(db.Model):
     name: Mapped[str] = mapped_column(String(50))
     email: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(nullable=False)
-    is_trainer: Mapped[bool] = mapped_column(Boolean(), nullable=False)
+    role:Mapped[str] = mapped_column(String(15), nullable=False, default="traine")
+    #is_trainer: Mapped[bool] = mapped_column(Boolean(), nullable=False)
  
     def serialize(self):
         return {

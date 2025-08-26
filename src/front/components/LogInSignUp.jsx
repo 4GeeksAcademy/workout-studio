@@ -81,12 +81,6 @@ const LogInSignUp= () => {
             </div>
           )}
 
-          {!logIn && (
-           <div>
-            <input id="trainer" type="checkbox" onClick={checkTrainer} />
-            <label className="p-4 text-amber-400 font-bold" htmlFor="trainer"> Are you a trainer? </label>
-           </div> 
-          )}
         </form>
 
         <button
