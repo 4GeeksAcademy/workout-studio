@@ -10,7 +10,7 @@ class User(db.Model):
     email: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(String(120),nullable=False)
     role: Mapped[str] = mapped_column(String(15), nullable=False, default="traine")
-    is_active: Mapped[bool] = mapped_column(Boolean(), nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean(), nullable=True)
     #Revisar cascade https://docs.sqlalchemy.org/en/20/orm/cascades.html
 
     def __init__(self,name,email,password):
