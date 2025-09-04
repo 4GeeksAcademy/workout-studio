@@ -1,7 +1,7 @@
 import {
-    createBrowserRouter,
-    createRoutesFromElements,
-    Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
 } from "react-router-dom";
 import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
@@ -9,21 +9,24 @@ import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
 import LogInSignUp from "./components/LogInSignUp";
 import ExercisesSection from "./components/ExercisesSection";
+import Membership from "./components/Memberships";
 
 
 export const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
+  createRoutesFromElements(
+    <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
-        {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
-        <Route path= "/" element={<Home />} />
-        <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
-        <Route path="/demo" element={<Demo />} />
-        <Route path="login" element={<LogInSignUp />} />
-        <Route path="/section" element={<ExercisesSection />} />
+      {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
+      <Route path="/" element={<Home />} />
+      <Route path="/single/:theId" element={<Single />} />  {/* Dynamic route for single items */}
+      <Route path="/demo" element={<Demo />} />
+      <Route path="login" element={<LogInSignUp />} />
+      <Route path="/section" element={<ExercisesSection />} />
+      <Route path="/member" element={<Membership />} />
 
 
 
-      </Route>
-    )
+
+    </Route>
+  )
 );

@@ -88,7 +88,7 @@ const Navbar = () => {
       [&>li>a]:text-current [&>li>a]:font-medium
       [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
       <li><Link to="/">INICIO</Link></li>
-      <li><Link to="/">MEMBRESIA</Link></li>
+      <li><Link to="/member">MEMBRESIA</Link></li>
       <li><Link to="/section">MACHINES</Link></li>
       <li><Link to="/">ACERCA DE</Link></li>
     </ul>
