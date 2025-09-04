@@ -1,19 +1,26 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import String, Boolean, Integer
 from sqlalchemy.orm import Mapped, mapped_column
+from typing import List
+
 
 db = SQLAlchemy()
+
 
 class User(db.Model):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
-    email: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
-    password: Mapped[str] = mapped_column(String(120),nullable=False)
-    role: Mapped[str] = mapped_column(String(15), nullable=False, default="traine")
+    email: Mapped[str] = mapped_column(
+        String(120), unique=True, nullable=False)
+    password: Mapped[str] = mapped_column(String(120), nullable=False)
+    role: Mapped[str] = mapped_column(
+        String(15), nullable=False, default="traine")
+    # favorites
     is_active: Mapped[bool] = mapped_column(Boolean(), nullable=True)
-    #Revisar cascade https://docs.sqlalchemy.org/en/20/orm/cascades.html
 
-    def __init__(self,name,email,password):
+    # Revisar cascade https://docs.sqlalchemy.org/en/20/orm/cascades.html
+
+    def __init__(self, name, email, password):
         self.name = name
         self.email = email
         self.password = password
@@ -24,36 +31,40 @@ class User(db.Model):
             db.session.commit()
         except:
             return Exception("Something went wrong")
- 
+
     def serialize(self):
         return {
             "id": self.id,
             "name": self.name,
             "email": self.email,
             "password": self.password,
-            "role":self.role
+            "role": self.role
             # do not serialize the password, its a security breach
         }
 
+
 class Workout(db.Model):
-    id: Mapped[int] = mapped_column(primary_key=True)   
+    id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(50))
-    section: Mapped[str] = mapped_column(String(120), unique=True, nullable=False)
+    section: Mapped[str] = mapped_column(
+        String(120), unique=True, nullable=False)
     machine: Mapped[str] = mapped_column(nullable=False)
     link: Mapped[str] = mapped_column(String(255), nullable=True)
     media: Mapped[str] = mapped_column(String(255), nullable=True)
+    rutinas_id: Mapped[int] = mapped_column(db.ForeignKey("routines.id"))
+    rutinas: Mapped["Routines"] = db.relationship(back_populates="workoute")
 
-    def __init__(self,name,section,machine,link,media):
-        self.name = name
-        self.section = section
-        self.machine = machine
-        self.link = link
-        self.media = media
+    def __init__(self, name, section, machine, link, media):
+        self.name=name
+        self.section=section
+        self.machine=machine
+        self.link=link
+        self.media=media
 
     def update_workout(self):
         try:
             db.session.add(self)
-            db.session.commit() 
+            db.session.commit()
         except:
             return Exception("Something went wrong")
 
@@ -65,14 +76,39 @@ class Workout(db.Model):
             "machine": self.machine,
             "link": self.link,
             "media": self.media
-        }    
+        }
+
+
+class Routines(db.Model):
+    __tablename__ = "routines"
+    id: Mapped[int]=mapped_column(primary_key=True)
+    name: Mapped[str]=mapped_column(String(50))
+    workoute: Mapped[List["Workout"]]=db.relationship(back_populates="rutinas")
+
+    def __init__(self):
+        self.name=name
+        self.section=section
+        self.machine=machine
+
+    def serialize(self):
+        return{
+            "id": self.id,
+            "name": self.name,
+            "workout": self.workoute
+        }
+        
+
+   # workout_id=Mapped[int]=mapped_column(db.ForeignKey("workout.id"))
+    #workouts_for_routines: Mapped["Workout"]=db.relationship(
+     #   "Workout", backref="workoutRoutine")
 
 
 class Favorites(db.Model):
-    id: Mapped[int] = mapped_column(primary_key=True)
+    id: Mapped[int]=mapped_column(primary_key=True)
 
-    usuario_id: Mapped[int] = mapped_column(db.ForeignKey("user.id"))
-    usuario: Mapped["User"] = db.relationship("User", backref="favorites")
+    usuario_id: Mapped[int]=mapped_column(db.ForeignKey("user.id"))
+    usuario: Mapped["User"]=db.relationship("User", backref="favorites")
 
-    exercise_id: Mapped[int] = mapped_column(db.ForeignKey("workout.id"))
-    exercise: Mapped["Workout"] = db.relationship("Workout", backref="favorited_by")
+    exercise_id: Mapped[int]=mapped_column(db.ForeignKey("workout.id"))
+    exercise: Mapped["Workout"]=db.relationship(
+        "Workout", backref="favorited_by")

@@ -9,6 +9,7 @@ import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
 import LogInSignUp from "./components/LogInSignUp";
 import ExercisesSection from "./components/ExercisesSection";
+import Routines from "./components/Routines";
 
 
 export const router = createBrowserRouter(
@@ -21,6 +22,7 @@ export const router = createBrowserRouter(
         <Route path="/demo" element={<Demo />} />
         <Route path="login" element={<LogInSignUp />} />
         <Route path="/section" element={<ExercisesSection />} />
+        <Route path="/routines" element={<Routines/>}/>
 
 
 

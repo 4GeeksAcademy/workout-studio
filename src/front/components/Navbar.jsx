@@ -119,7 +119,7 @@ const Navbar = () => {
       <header
         ref={headerRef}
         id="landing-header"
-        className="py-3 px-4 md:px-10 flex items-center fixed top-0 w-full justify-between
+        className="py-3 px-4 md:px-10 flex items-center sticky top-0 w-full justify-between
              bg-black/95 backdrop-blur-sm transition-colors duration-500 rounded-b-2xl md:rounded-b-3xl
              z-50"
       >
