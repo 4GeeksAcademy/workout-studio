@@ -1,6 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import String, Boolean, Integer
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy import String, Boolean, Integer, ForeignKey, Table, Column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 from typing import List
 
 
@@ -48,11 +48,12 @@ class Workout(db.Model):
     name: Mapped[str] = mapped_column(String(50))
     section: Mapped[str] = mapped_column(
         String(120), unique=True, nullable=False)
-    machine: Mapped[str] = mapped_column(nullable=False)
+    machine: Mapped[str] = mapped_column(String(120),nullable=False)
     link: Mapped[str] = mapped_column(String(255), nullable=True)
     media: Mapped[str] = mapped_column(String(255), nullable=True)
-    rutinas_id: Mapped[int] = mapped_column(db.ForeignKey("routines.id"))
-    rutinas: Mapped["Routines"] = db.relationship(back_populates="workoute")
+    #rutinas_id: Mapped[int] = mapped_column(db.ForeignKey("routines.id"))
+    #rutinas: Mapped["Routines"] = db.relationship(back_populates="workoute")
+    routine: Mapped[List["Routines"]]=relationship(secondary="association_routines", back_populates="workouts")
 
     def __init__(self, name, section, machine, link, media):
         self.name=name
@@ -79,16 +80,21 @@ class Workout(db.Model):
         }
 
 
+association_routines = Table(
+    "association_routines",
+    db.metadata,
+    Column("routines_id", ForeignKey("routines.id")),
+    Column("workout_id", ForeignKey("workout.id"))
+)
+
 class Routines(db.Model):
     __tablename__ = "routines"
     id: Mapped[int]=mapped_column(primary_key=True)
     name: Mapped[str]=mapped_column(String(50))
-    workoute: Mapped[List["Workout"]]=db.relationship(back_populates="rutinas")
+    workouts: Mapped[List["Workout"]]=relationship(secondary="association_routines", back_populates="routine")
+ 
 
-    def __init__(self):
-        self.name=name
-        self.section=section
-        self.machine=machine
+
 
     def serialize(self):
         return{

@@ -1,5 +1,44 @@
-{id:
-    
-
-
-}
+[
+  {
+    "name": "Press de Pecho",
+    "section": "Pecho",
+    "machine": "Máquina de press sentado",
+    "link": "https://www.youtube.com/watch?v=ygFvuqi5b7M&t=89s",
+    "media": "https://www.facebook.com/BodySportGymCompostela/posts/112483743435322/"
+  },
+  {
+    "name": "Remo sentado",
+    "section": "Espalda",
+    "machine": "Máquina de remo",
+    "link": "https://www.youtube.com/watch?v=ygFvuqi5b7M&t=118s",
+    "media": "https://www.vitonica.com/entrenamiento/11-mejores-ejercicios-para-entrenar-tu-espalda-gimnasio-1"
+  },
+  {
+    "name": "Press de hombros",
+    "section": "Hombros",
+    "machine": "Máquina de hombros",
+    "link": "https://www.youtube.com/watch?v=ygFvuqi5b7M&t=128s",
+    "media": "https://kr.pinterest.com/pin/474074298294514345/"
+  },
+  {
+    "name": "Extensión de piernas",
+    "section": "Piernas",
+    "machine": "Máquina de extensión",
+    "link": "https://www.youtube.com/watch?v=ygFvuqi5b7M&t=168s",
+    "media": "https://www.dir.cat/blog/es/ejercicios-tonificar-piernas-en-gimnasio"
+  },
+  {
+    "name": "Curl de bíceps",
+    "section": "Brazos (bíceps)",
+    "machine": "Máquina de curl",
+    "link": "https://www.youtube.com/watch?v=ygFvuqi5b7M&t=203s",
+    "media": "https://eresfitness.com/esquemas-de-entrenamiento/"
+  },
+  {
+    "name": "Extensión de tríceps",
+    "section": "Brazos (tríceps)",
+    "machine": "Máquina de tríceps",
+    "link": "https://www.youtube.com/watch?v=ygFvuqi5b7M&t=225s",
+    "media": "https://www.sportlife.es/entrenar/fitness/ejercicios-triceps-gimnasio_199822_102.html"
+  }
+]

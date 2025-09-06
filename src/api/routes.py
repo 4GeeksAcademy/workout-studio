@@ -5,7 +5,9 @@ from flask import Flask, request, jsonify, url_for, Blueprint
 from api.models import db, User, Workout, Routines
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
-from flask_jwt_extended import create_access_token,jwt_required
+from flask_jwt_extended import create_access_token,jwt_required, get_jwt_identity
+
+
 
 api = Blueprint('api', __name__)
 
@@ -84,6 +86,7 @@ def get_users():
 def create_user():
     body = request.get_json()
     name, email, password = requestValues(body, ["name", "email", "password"])
+  
 
     try:
         new_user = User(name=name, email=email, password=password)
