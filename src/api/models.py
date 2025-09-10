@@ -48,19 +48,21 @@ class Workout(db.Model):
     name: Mapped[str] = mapped_column(String(50))
     section: Mapped[str] = mapped_column(
         String(120), unique=True, nullable=False)
-    machine: Mapped[str] = mapped_column(String(120),nullable=False)
+    machine: Mapped[str] = mapped_column(String(120), nullable=False)
     link: Mapped[str] = mapped_column(String(255), nullable=True)
     media: Mapped[str] = mapped_column(String(255), nullable=True)
-    #rutinas_id: Mapped[int] = mapped_column(db.ForeignKey("routines.id"))
-    #rutinas: Mapped["Routines"] = db.relationship(back_populates="workoute")
-    routine: Mapped[List["Routines"]]=relationship(secondary="association_routines", back_populates="workouts")
+    # rutinas_id: Mapped[int] = mapped_column(db.ForeignKey("routines.id"))
+    # rutinas: Mapped["Routines"] = db.relationship(back_populates="workoute")
+    routine: Mapped[List["Routines"]] = relationship(
+        secondary="association_routines", back_populates="workouts")
+    routine_workouts: Mapped[List["RoutineWorkout"]] = relationship("RoutineWorkout", back_populates="workout") #usar esta
 
     def __init__(self, name, section, machine, link, media):
-        self.name=name
-        self.section=section
-        self.machine=machine
-        self.link=link
-        self.media=media
+        self.name = name
+        self.section = section
+        self.machine = machine
+        self.link = link
+        self.media = media
 
     def update_workout(self):
         try:
@@ -87,34 +89,87 @@ association_routines = Table(
     Column("workout_id", ForeignKey("workout.id"))
 )
 
+
 class Routines(db.Model):
     __tablename__ = "routines"
-    id: Mapped[int]=mapped_column(primary_key=True)
-    name: Mapped[str]=mapped_column(String(50))
-    workouts: Mapped[List["Workout"]]=relationship(secondary="association_routines", back_populates="routine")
- 
+    id: Mapped[int] = mapped_column(primary_key=True)
+    name: Mapped[str] = mapped_column(String(50))
+    workouts: Mapped[List["Workout"]] = relationship(
+        secondary="association_routines", back_populates="routine")
+    routine_workouts: Mapped[List["RoutineWorkout"]] = relationship("RoutineWorkout", back_populates="routine")#usar esta
 
+    def __int__(self, name):
+        self.name = name
 
+    def create_routine_id(self):
+        try:
+            db.session.add(self)
+            db.session.commit()
+        except:
+            return Exception("Something went wrong")
 
     def serialize(self):
-        return{
+        return {
             "id": self.id,
             "name": self.name,
-            "workout": self.workoute
+            "workouts": self.workouts
         }
-        
 
    # workout_id=Mapped[int]=mapped_column(db.ForeignKey("workout.id"))
-    #workouts_for_routines: Mapped["Workout"]=db.relationship(
+    # workouts_for_routines: Mapped["Workout"]=db.relationship(
      #   "Workout", backref="workoutRoutine")
 
 
 class Favorites(db.Model):
-    id: Mapped[int]=mapped_column(primary_key=True)
+    id: Mapped[int] = mapped_column(primary_key=True)
 
-    usuario_id: Mapped[int]=mapped_column(db.ForeignKey("user.id"))
-    usuario: Mapped["User"]=db.relationship("User", backref="favorites")
+    usuario_id: Mapped[int] = mapped_column(db.ForeignKey("user.id"))
+    usuario: Mapped["User"] = db.relationship("User", backref="favorites")
 
-    exercise_id: Mapped[int]=mapped_column(db.ForeignKey("workout.id"))
-    exercise: Mapped["Workout"]=db.relationship(
+    exercise_id: Mapped[int] = mapped_column(db.ForeignKey("workout.id"))
+    exercise: Mapped["Workout"] = db.relationship(
         "Workout", backref="favorited_by")
+
+
+class RoutineWorkout(db.Model):
+    __tablename__ = "routine_workout"
+    id: Mapped[int] = mapped_column(primary_key=True)
+
+    routine_id: Mapped[int] = mapped_column(ForeignKey("routines.id"))
+    workout_id: Mapped[int] = mapped_column(ForeignKey("workout.id"))
+
+    day: Mapped[str] = mapped_column(String(15))  # e.g., "Monday", "Tuesday"
+    sets: Mapped[int] = mapped_column(nullable=True)
+    reps: Mapped[int] = mapped_column(nullable=True)
+    rest_time: Mapped[int] = mapped_column(nullable=True)  # in seconds
+
+    routine: Mapped["Routines"] = relationship(
+        "Routines", back_populates="routine_workouts")
+    workout: Mapped["Workout"] = relationship(
+        "Workout", back_populates="routine_workouts")
+
+    def __init__(self, routine_id, workout_id, day, sets, reps, rest_time):
+
+        self.routine_id = routine_id,
+        self.workout_id = workout_id,
+        self.day = day,
+        self.sets = sets,
+        self.reps = reps,
+        self.rest_time = rest_time
+
+    def create_routine_workout(self):
+        try:
+            db.session.add(self)
+            db.session.commit()
+        except:
+            return Exception("Something went wrong")
+
+    def serialize(self):
+        return {
+            "routine_id": self.routine_id,
+            "workout_id": self.workout_id,
+            "day": self.day,
+            "sets": self.sets,
+            "reps": self.reps,
+            "rest_time": self.rest_time
+        }

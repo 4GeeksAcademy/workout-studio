@@ -6,10 +6,14 @@ import Footer from "../components/Footer";
 
 export const Layout = () => {
     return (
-        <ScrollToTop>
-            <Navbar />
-            <Outlet />
-            <Footer />
-        </ScrollToTop>
+        <div className="bg-black text-yellow-600 min-h-screen flex flex-col">
+            <ScrollToTop>
+                <Navbar />
+                <main className="flex-grow">
+                    <Outlet />
+                </main>
+                <Footer />
+            </ScrollToTop>
+        </div>
     );
 }

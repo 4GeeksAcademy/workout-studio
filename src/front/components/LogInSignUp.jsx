@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import image from "../assets/img/LOGO PRINCIPAL/Recurso 3ldpi.png"
 
 const LogInSignUp= () => {
-  const imageURL = `https://picsum.photos/id/237/${window.innerHeight}/0`;
+  const imageURL = "../assets/img/LOGO PRINCIPAL/Recurso 3ldpi.png";
   const [credentials, setCredentials] = useState({ username: "", password: "", email: "", confirmPassword: "" });
   const [logIn, setLogIn] = useState(true);
   const [trainer, setTrainer] = useState(false)
@@ -23,10 +24,9 @@ const LogInSignUp= () => {
   return (
     <div className="flex bg-gray-800 content-between w-4xl m-auto mt-[100px] h-screen">
     {/* Se utilizan varios condicionales, para que pueda hacerse el cambio de log in a sign up en una misma pagina, falta aplicar animaciones de tailwind */}
-      {logIn && 
-        <img src={imageURL} alt="random" />}
-      )
-
+       <div className="flex items-center justify-start w-1/2 pl-10">
+    <img src={image} alt="Logo" className="h-48" />
+  </div>
      
       <div className="flex flex-col justify-evenly m-auto">
         <div className="m-auto mt-8 mb-6">
@@ -91,9 +91,7 @@ const LogInSignUp= () => {
         </button>
       </div>
 
-      {!logIn && (
-        <img className="animate-pulse" src={imageURL} alt="random" />
-      )}
+      
     </div>
   );
 };

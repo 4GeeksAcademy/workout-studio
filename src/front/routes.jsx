@@ -11,7 +11,8 @@ import LogInSignUp from "./components/LogInSignUp";
 import ExercisesSection from "./components/ExercisesSection";
 import Routines from "./components/Routines";
 import Membership from "./components/Memberships";
-
+import UserInterface from "./components/UserInterface"
+import RoutineCreate from "./components/RoutineCreate";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +26,8 @@ export const router = createBrowserRouter(
         <Route path="/section" element={<ExercisesSection />} />
         <Route path="/routines" element={<Routines/>}/>
         <Route path="/member" element={<Membership />} />
-
-
+        <Route path="/user" element={<UserInterface />} />
+        <Route path="/createroutine" element={<RoutineCreate/>}/>
 
 
     </Route>

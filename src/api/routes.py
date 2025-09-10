@@ -2,7 +2,7 @@
 This module takes care of starting the API Server, Loading the DB and Adding the endpoints
 """
 from flask import Flask, request, jsonify, url_for, Blueprint
-from api.models import db, User, Workout, Routines
+from api.models import db, User, Workout, Routines, RoutineWorkout
 from api.utils import generate_sitemap, APIException
 from flask_cors import CORS
 from flask_jwt_extended import create_access_token,jwt_required, get_jwt_identity
@@ -205,20 +205,47 @@ def update_individual_workout(id):
     """
     --------------------This Section is for Routines Endpoint--------------------
     """
-
-
-@api.route("/routine", methods=["GET"])
+@api.route("/routines", methods=["GET"])
 def get_routines():
     routines_list = Routines.query.all()
 
     return jsonify([
         routine.serialize() for routine in routines_list
-    ]), 200
+    ]), 201
 
+@api.route("/routines", methods=["POST"])
+def create_routine():
+    name = request.json.get("name",None)
 
-"""@api.route("/routine", methods=["POST"])
-def create_routines():
+    try:
+        create_routine = Routines(name = name)
+        create_routine.create_routine_id()
 
+    except:
+        return jsonify({"msg": "Something went wrong while creating routine"}), 500
+
+    return jsonify(create_routine.serialize()), 201
+
+"""
+-------------------------RoutineWorkout Endpoint---------------------------
+"""
+@api.route("/routinesworkout", methods=["POST"])
+def create_daily_routine():
     body = request.get_json()
-    name:
-    Workout"""
+    
+    routine_id,workout_id,day,sets,reps,rest_time = requestValues(body, [routine_id,workout_id,day,sets,reps,rest_time])
+
+    try:
+        create_d_routine = RoutineWorkout(routine_id = routine_id, workout_id = workout_id, day=day, sets=sets, reps =reps, rest_time =rest_time)
+        create_d_routine.create_routine_workout()
+    except:
+        return jsonify({"msg": "Something went wrong while creating routine"}), 500
+
+    return jsonify(create_d_routine.serialize()), 201
+
+@api.route("/routinesworkout", methods = ["GET"])
+def get_routinesworkout():
+    routines_workout_list = RoutineWorkout.query.all()
+    return jsonify([
+        routine.serialize() for routine in routines_workout_list
+    ]), 201
