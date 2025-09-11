@@ -6,6 +6,9 @@ const RoutineCreate = () => {
     const [routineId, setRoutineId] = useState("")
     const [routineName, setRoutineName] = useState("")
 
+    const [workouts, setWorkouts] = useState([])
+
+
     const [day, setDay] = useState("")
     const [set, setSet] = useState("")
     const [reps, setReps] = useState("")
@@ -44,7 +47,20 @@ const RoutineCreate = () => {
         })
     }
 
+    const getWorkout = async () => {
+        const response = await fetch(`${backendUrl}api/workout`)
+        if (response.ok) {
+            console.log("It was an ok fetch")
+        }
+        const data = await response.json()
+        setWorkouts(data)
+        console.log(data)
 
+    }
+
+    useEffect(() => {
+        getWorkout();
+    }, [])
 
 
     return (<>
@@ -54,7 +70,7 @@ const RoutineCreate = () => {
 
             {!routineId ? (
                 <form
-                   >
+                >
                     <div className="mt-2">
                         <input
                             className="border-current rounded-md bg-amber-400"
@@ -77,7 +93,7 @@ const RoutineCreate = () => {
             ) : (
                 <form
                     className="place-items-center"
-                   
+
                 >
                     <div className="mt-2">
                         <input
@@ -87,6 +103,19 @@ const RoutineCreate = () => {
                             type="text"
                             placeholder="Day"
                         />
+                    </div>
+                    <div className="w-sm">
+                        <select name="options" id="options" className="border-current rounded-md bg-amber-400" >
+                            {workouts && workouts.map((workout, index) => {
+                                return (
+                                    <option className="text-stone-200" key={index} value=""> {workout.name} </option>
+                                )
+
+                            })}
+
+                        </select>
+
+
                     </div>
                     <div className="mt-2">
                         <input
