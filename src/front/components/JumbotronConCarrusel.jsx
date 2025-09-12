@@ -13,7 +13,6 @@ export default function JumbotronCarousel() {
     setCurrent((current - 1 + images.length) % images.length);
   const nextSlide = () => setCurrent((current + 1) % images.length);
 
-  // Transición automática cada 5 segundos
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -23,7 +22,7 @@ export default function JumbotronCarousel() {
 
   return (
     <section className="w-full h-screen bg-black flex flex-col justify-center items-center">
-      <h1 className="text-yellow-400 text-4xl md:text-6xl font-bold mb-6 text-center px-4">
+      <h1 className="text-[#b30000] text-4xl md:text-6xl font-bold mb-6 text-center px-4">
         ¡Bienvenido a Workout Studio!
       </h1>
 
@@ -37,7 +36,7 @@ export default function JumbotronCarousel() {
         {/* Botón anterior */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-yellow-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#b30000] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
           aria-label="Anterior"
         >
           <svg
@@ -54,7 +53,7 @@ export default function JumbotronCarousel() {
         {/* Botón siguiente */}
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-yellow-500 text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#b30000] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform"
           aria-label="Siguiente"
         >
           <svg
@@ -76,7 +75,7 @@ export default function JumbotronCarousel() {
             key={idx}
             onClick={() => setCurrent(idx)}
             className={`w-4 h-4 rounded-full transition-all ${
-              current === idx ? "bg-yellow-400 scale-110" : "bg-gray-600"
+              current === idx ? "bg-[#b30000] scale-110" : "bg-gray-600"
             }`}
             aria-label={`Ir a la imagen ${idx + 1}`}
           />
