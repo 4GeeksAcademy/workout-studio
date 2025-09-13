@@ -13,6 +13,7 @@ import Routines from "./components/Routines";
 import Membership from "./components/Memberships";
 import UserInterface from "./components/UserInterface"
 import RoutineCreate from "./components/RoutineCreate";
+import AdminPannel from "./components/AdminPannel";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +29,7 @@ export const router = createBrowserRouter(
         <Route path="/member" element={<Membership />} />
         <Route path="/user" element={<UserInterface />} />
         <Route path="/createroutine" element={<RoutineCreate/>}/>
+        <Route path="/AdminPannel" element={<AdminPannel/>}/>
 
 
     </Route>
