@@ -11,14 +11,15 @@ import LogInSignUp from "./components/LogInSignUp";
 import ExercisesSection from "./components/ExercisesSection";
 import Routines from "./components/Routines";
 import Membership from "./components/Memberships";
+<<<<<<< HEAD
 import UserInterface from "./components/UserInterface"
 import RoutineCreate from "./components/RoutineCreate";
-import AdminPannel from "./components/AdminPannel";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
+<<<<<<< HEAD
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Home />} />
         <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
@@ -29,7 +30,6 @@ export const router = createBrowserRouter(
         <Route path="/member" element={<Membership />} />
         <Route path="/user" element={<UserInterface />} />
         <Route path="/createroutine" element={<RoutineCreate/>}/>
-        <Route path="/AdminPannel" element={<AdminPannel/>}/>
 
 
     </Route>

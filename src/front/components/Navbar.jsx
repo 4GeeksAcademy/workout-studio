@@ -76,6 +76,7 @@ const Navbar = () => {
     { to: "/", label: "ACERCA DE" },
     { to: "/", label: "ENTRENADORES" },
     { to: "/login", label: "CUENTA" },
+    { to: "/ectionroutine", label: "RUTINAS" },
   ];
 
   const NavCenter = () => (
@@ -86,7 +87,9 @@ const Navbar = () => {
       <li><Link to="/">INICIO</Link></li>
       <li><Link to="/member">MEMBRESIA</Link></li>
       <li><Link to="/section">MACHINES</Link></li>
-      <li><Link to="/">ACERCA DE</Link></li>
+      <li><Link to="/sectionroutine">RUTINAS</Link></li>
+      <li><Link to="/pruebahome">ACERCA DE</Link></li>
+
     </ul>
   );
 
@@ -95,7 +98,7 @@ const Navbar = () => {
       [&>li>a]:transition-colors [&>li>a]:duration-500
       [&>li>a]:text-current [&>li>a]:font-medium
       [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
-      <li><Link to="/">ENTRENADORES</Link></li>
+      <li><Link to="/pruebadash">ENTRENADORES</Link></li>
       <li><Link to="/login">CUENTA</Link></li>
     </ul>
   );
