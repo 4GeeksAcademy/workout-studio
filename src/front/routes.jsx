@@ -11,13 +11,21 @@ import LogInSignUp from "./components/LogInSignUp";
 import ExercisesSection from "./components/ExercisesSection";
 import Routines from "./components/Routines";
 import Membership from "./components/Memberships";
+<<<<<<< HEAD
 import UserInterface from "./components/UserInterface"
 import RoutineCreate from "./components/RoutineCreate";
+=======
+import RoutinesSection from "./components/RoutinesSection";
+import HomeSection from "./components/HomeSection";
+import TrainerDashboard from "./components/TrainerDashboard";
+
+>>>>>>> 72eef23 (Update)
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />} errorElement={<h1>Not found!</h1>} >
 
+<<<<<<< HEAD
         {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
         <Route path= "/" element={<Home />} />
         <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
@@ -28,6 +36,21 @@ export const router = createBrowserRouter(
         <Route path="/member" element={<Membership />} />
         <Route path="/user" element={<UserInterface />} />
         <Route path="/createroutine" element={<RoutineCreate/>}/>
+=======
+      {/* Nested Routes: Defines sub-routes within the BaseHome component. */}
+      <Route path="/" element={<Home />} />
+      <Route path="/single/:theId" element={<Single />} />  {/* Dynamic route for single items */}
+      <Route path="/demo" element={<Demo />} />
+      <Route path="login" element={<LogInSignUp />} />
+      <Route path="/section" element={<ExercisesSection />} />
+      <Route path="/member" element={<Membership />} />
+      <Route path="/sectionroutine" element={<RoutinesSection />} />
+      <Route path="/pruebahome" element={<HomeSection />} />
+      <Route path="/pruebadash" element={<TrainerDashboard />} />
+
+
+
+>>>>>>> 72eef23 (Update)
 
 
     </Route>
