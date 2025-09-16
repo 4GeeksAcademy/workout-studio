@@ -107,7 +107,7 @@ const Navbar = () => {
       [&>li>a]:transition-colors [&>li>a]:duration-500
       [&>li>a]:text-current [&>li>a]:font-medium
       [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
-      <li><Link to="/pruebadash">ENTRENADORES</Link></li>
+      <li><Link to="/trainer">ENTRENADORES</Link></li>
       {store.profile
       ? <li><Link to="/logout">CERRAR SESIÓN</Link></li>
       : <li><Link to="/login">CUENTA</Link></li>
