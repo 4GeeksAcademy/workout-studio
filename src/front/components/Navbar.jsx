@@ -79,6 +79,10 @@ const Navbar = () => {
     { to: "/about", label: "ACERCA DE" },
     ...(store.profile ? [{ to: "/adminpannel", label: "ADMIN" }] : []),
     { to: "/", label: "ENTRENADORES" },
+    ...(store.profile
+    ? [{ to: "/logout", label: "CERRAR SESIÓN" }]
+    : [{ to: "/login", label: "CUENTA" }]
+  ),
     { to: "/login", label: "CUENTA" },
     { to: "/user", label: "RUTINAS" },
   ];
@@ -104,7 +108,10 @@ const Navbar = () => {
       [&>li>a]:text-current [&>li>a]:font-medium
       [&>li>a]:inline-block [&>li>a]:px-4 [&>li>a]:py-2">
       <li><Link to="/pruebadash">ENTRENADORES</Link></li>
-      <li><Link to="/login">CUENTA</Link></li>
+      {store.profile
+      ? <li><Link to="/logout">CERRAR SESIÓN</Link></li>
+      : <li><Link to="/login">CUENTA</Link></li>
+    }
     </ul>
   );
 
