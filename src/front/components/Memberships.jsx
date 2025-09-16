@@ -18,10 +18,9 @@ const currency = (n) =>
   }).format(n);
 
 export default function Memberships({ onSelect }) {
-  const [cycle, setCycle] = useState("monthly"); // "monthly" | "yearly"
-  const DISCOUNT = 0.2; // 20%
+  const [cycle, setCycle] = useState("monthly");
+  const DISCOUNT = 0.2;
 
-  // ---------- Planes: Basic, Pro, Elite ----------
   const basePlans = useMemo(
     () => [
       {
@@ -35,7 +34,7 @@ export default function Memberships({ onSelect }) {
           { ok: true, text: "App con rutinas base" },
           { ok: true, text: "Lockers comunitarios" },
           { ok: false, text: "Acceso 24/7" },
-          { ok: false, text: "Área Black & Lounge" },
+          { ok: false, text: "Área Lounge" },
           { ok: false, text: "Entrenador 1 a 1 mensual" },
         ],
         cta: "Elegir Basic",
@@ -51,12 +50,12 @@ export default function Memberships({ onSelect }) {
           { ok: true, text: "Acceso 24/7" },
           { ok: true, text: "Clases premium (HIIT, Cycling, Boxing)" },
           { ok: true, text: "Plan personalizado y seguimiento" },
-          { ok: true, text: "Área Black & Lounge" },
+          { ok: true, text: "Área Lounge" },
           { ok: true, text: "Sauna & Recovery Zone" },
           { ok: true, text: "Invitados (2/mes)" },
         ],
         cta: "Unirme a Pro",
-        icon: <Crown size={18} className="text-yellow-300" />,
+        icon: <Crown size={18} className="text-red-400" />,
         variant: "pro",
         highlight: true,
         badge: "Popular",
@@ -92,7 +91,7 @@ export default function Memberships({ onSelect }) {
 
   return (
     <section className="relative w-full px-4 sm:px-6 lg:px-10 py-10 bg-black mt-10 text-white">
-      <div className="pointer-events-none absolute -top-20 -right-32 h-56 w-56 rounded-full bg-yellow-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-20 -right-32 h-56 w-56 rounded-full bg-[#b30000]/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-32 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
 
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-6">
@@ -120,7 +119,6 @@ export default function Memberships({ onSelect }) {
             />
             <button
               type="button"
-              aria-pressed={cycle === "monthly"}
               onClick={() => setCycle("monthly")}
               className={`relative z-10 py-2 px-6 text-sm font-semibold transition-colors ${
                 cycle === "monthly"
@@ -132,7 +130,6 @@ export default function Memberships({ onSelect }) {
             </button>
             <button
               type="button"
-              aria-pressed={cycle === "yearly"}
               onClick={() => setCycle("yearly")}
               className={`relative z-10 py-2 px-6 text-sm font-semibold transition-colors ${
                 cycle === "yearly"
@@ -147,11 +144,9 @@ export default function Memberships({ onSelect }) {
           <div className="mt-2 flex items-center justify-center gap-2 text-xs text-white/80">
             <BadgePercent size={16} className="opacity-80" />
             {cycle === "yearly" ? (
-              <span className="transition-opacity duration-300">
-                Ahorra <b>20%</b> pagando anual
-              </span>
+              <span>Ahorra <b>20%</b> pagando anual</span>
             ) : (
-              <span className="transition-opacity duration-300 opacity-70">
+              <span className="opacity-70">
                 Cámbiate a anual y ahorra <b>20%</b>
               </span>
             )}
@@ -184,12 +179,11 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
   const priceYearlyPM = plan.yearlyPerMonth;
   const billedYearly = plan.yearlyTotal;
 
-  // Variantes visuales: basic / pro / elite
   const variantStyles = {
     basic:
       "border-white/15 bg-[#151515]/90 hover:[box-shadow:0_0_0_1px_rgba(255,255,255,0.16),0_0_28px_rgba(0,0,0,0.35)]",
     pro:
-      "border-yellow-400/40 bg-[rgba(255,204,0,0.06)] ring-1 ring-yellow-400/10 hover:[box-shadow:0_0_0_1px_rgba(250,204,21,0.5),0_0_28px_rgba(250,204,21,0.35)]",
+      "border-red-500/40 bg-[rgba(179,0,0,0.06)] ring-1 ring-red-500/20 hover:[box-shadow:0_0_0_1px_rgba(179,0,0,0.5),0_0_28px_rgba(179,0,0,0.35)]",
     elite:
       "border-white/15 bg-[#151515]/90 hover:[box-shadow:0_0_0_1px_rgba(255,255,255,0.16),0_0_28px_rgba(0,0,0,0.35)]",
   };
@@ -205,26 +199,23 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
       ].join(" ")}
       style={{ animationDelay: `${delay}ms` }}
     >
-      {/* Badges */}
       {plan.badge && (
         <div className="absolute right-3 top-3 z-10">
-          <span className="inline-flex items-center gap-1 rounded-full border border-yellow-400/40 bg-yellow-400/15 px-3 py-1 text-xs font-semibold text-yellow-300">
+          <span className="inline-flex items-center gap-1 rounded-full border border-red-500/40 bg-red-500/15 px-3 py-1 text-xs font-semibold text-red-400">
             {plan.id === "pro" ? <Crown size={14} /> : null}
             {plan.badge}
           </span>
         </div>
       )}
 
-      {/* Header: icono + nombre */}
       <div className="flex items-center justify-between">
         <div>
           <h3 className="text-xl font-extrabold tracking-tight flex items-center gap-2">
-            {/* Iconos por variante */}
             {plan.variant === "basic" && (
               <Dumbbell size={18} className="text-white" />
             )}
             {plan.variant === "pro" && (
-              <Crown size={18} className="text-yellow-300" />
+              <Crown size={18} className="text-red-400" />
             )}
             {plan.variant === "elite" && (
               <Zap size={18} className="text-white" />
@@ -235,17 +226,14 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
         </div>
       </div>
 
-      {/* Precio (transición mensual/anual) */}
+      {/* Precio */}
       <div className="relative mt-5 h-14">
-        {/* Mensual */}
         <div
-          className={[
-            "absolute inset-0 flex items-end gap-1 transition-all duration-300",
+          className={`absolute inset-0 flex items-end gap-1 transition-all duration-300 ${
             cycle === "monthly"
               ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-2",
-          ].join(" ")}
-          aria-hidden={cycle !== "monthly"}
+              : "opacity-0 -translate-y-2"
+          }`}
         >
           <span className="text-4xl font-black leading-none">
             {currency(priceMonthly)}
@@ -253,15 +241,12 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
           <span className="pb-1 text-white/70">/mes</span>
         </div>
 
-        {/* Anual */}
         <div
-          className={[
-            "absolute inset-0 flex items-end gap-1 transition-all duration-300",
+          className={`absolute inset-0 flex items-end gap-1 transition-all duration-300 ${
             cycle === "yearly"
               ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-2",
-          ].join(" ")}
-          aria-hidden={cycle !== "yearly"}
+              : "opacity-0 translate-y-2"
+          }`}
         >
           <span className="text-4xl font-black leading-none">
             {currency(priceYearlyPM)}
@@ -277,7 +262,6 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
         </div>
       )}
 
-      {/* Features */}
       <ul className="mt-6 space-y-3">
         {plan.features.map((f, i) => (
           <li key={i} className="flex items-start gap-3">
@@ -290,21 +274,23 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
                 <X size={14} />
               </span>
             )}
-            <span className={f.ok ? "text-white/90" : "text-white/50 line-through"}>
+            <span
+              className={
+                f.ok ? "text-white/90" : "text-white/50 line-through"
+              }
+            >
               {f.text}
             </span>
           </li>
         ))}
       </ul>
 
-      {/* CTA */}
       <button
         onClick={onSelect}
         className={[
-          "mt-7 inline-flex items-center justify-center gap-2 rounded-xl w-full px-4 py-3 font-semibold",
-          "transition-all duration-200 border",
+          "mt-7 inline-flex items-center justify-center gap-2 rounded-xl w-full px-4 py-3 font-semibold transition-all duration-200 border",
           plan.variant === "pro"
-            ? "bg-yellow-400 text-black border-yellow-300 hover:bg-yellow-300"
+            ? "bg-[#b30000] text-white border-red-700 hover:bg-red-800"
             : "bg-white/10 text-white border-white/20 hover:bg-white/15",
           "group-hover:translate-y-[-1px]",
         ].join(" ")}
@@ -312,9 +298,8 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
         {plan.cta} <ArrowRight size={18} />
       </button>
 
-      {/* Glow sutil en hover */}
       <div className="pointer-events-none absolute -z-10 inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-36 w-56 rounded-full bg-yellow-400/10 blur-3xl" />
+        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-36 w-56 rounded-full bg-red-500/10 blur-3xl" />
       </div>
 
       <style>{`

@@ -15,27 +15,33 @@ const BATCH = 12;
 const norm = (s = "") => String(s).toLowerCase();
 const isAll = (v, label) => norm(v) === norm(label);
 
-export default function ExercisesGrid({ search = "", target = "All muscles", bodyPart = "All body parts" }) {
+export default function ExercisesGrid({
+  search = "",
+  target = "All muscles",
+  bodyPart = "All body parts",
+}) {
   const [items, setItems] = useState([]);
   const [visible, setVisible] = useState(BATCH);
   const [loading, setLoading] = useState(true);
   const [err, setErr] = useState(null);
   const sentinelRef = useRef(null);
 
-  // ---- Fetch combinado de varias "máquinas" + fallback ----
+  // ---- Fetch de ejercicios ----
   useEffect(() => {
     const load = async () => {
       try {
         const headers = {
-          "X-RapidAPI-Key": import.meta.env.VITE_RAPIDAPI_KEY,
-          "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
+          "x-rapidapi-key": import.meta.env.VITE_RAPIDAPI_KEY,
+          "x-rapidapi-host": "exercisedb.p.rapidapi.com",
         };
 
-        // Trae varias categorías de máquinas en paralelo
         const results = await Promise.all(
           EQUIPMENTS.map(async (eq) => {
             try {
-              const res = await fetch(`${BASE}/exercises/equipment/${encodeURIComponent(eq)}`, { headers, cache: "no-store" });
+              const res = await fetch(
+                `${BASE}/exercises/equipment/${encodeURIComponent(eq)}`,
+                { headers, cache: "no-store" }
+              );
               if (!res.ok) return [];
               const data = await res.json();
               return Array.isArray(data) ? data : [];
@@ -47,13 +53,15 @@ export default function ExercisesGrid({ search = "", target = "All muscles", bod
 
         let merged = results.flat();
 
-        // Fallback si vino vacío
         if (!merged.length) {
-          const res = await fetch(`${BASE}/exercises?equipment=machine`, { headers, cache: "no-store" });
+          const res = await fetch(`${BASE}/exercises/equipmentList`, {
+            headers,
+            cache: "no-store",
+          });
           merged = res.ok ? await res.json() : [];
         }
 
-        // Deduplicar por id o name
+        // Deduplicar
         const seen = new Set();
         const unique = merged.filter((x) => {
           const key = x.id ?? norm(x.name);
@@ -73,14 +81,18 @@ export default function ExercisesGrid({ search = "", target = "All muscles", bod
     load();
   }, []);
 
-  // ---- Filtros (search, target, bodyPart) ----
+  // ---- Filtros ----
   const filtered = useMemo(() => {
     const q = norm(search);
     const tgt = norm(target);
     const bp = norm(bodyPart);
     return items.filter((x) => {
-      const okTarget = isAll(target, "All muscles") ? true : norm(x.target) === tgt;
-      const okBody   = isAll(bodyPart, "All body parts") ? true : norm(x.bodyPart) === bp;
+      const okTarget = isAll(target, "All muscles")
+        ? true
+        : norm(x.target) === tgt;
+      const okBody = isAll(bodyPart, "All body parts")
+        ? true
+        : norm(x.bodyPart) === bp;
       const okSearch = q ? norm(x.name).includes(q) : true;
       return okTarget && okBody && okSearch;
     });
@@ -91,7 +103,7 @@ export default function ExercisesGrid({ search = "", target = "All muscles", bod
     setVisible(Math.min(BATCH, filtered.length));
   }, [filtered.length, search, target, bodyPart]);
 
-  // ---- Scroll infinito con IntersectionObserver ----
+  // ---- Scroll infinito ----
   useEffect(() => {
     if (!sentinelRef.current) return;
     const el = sentinelRef.current;
@@ -102,33 +114,43 @@ export default function ExercisesGrid({ search = "", target = "All muscles", bod
           setVisible((v) => Math.min(v + BATCH, filtered.length));
         }
       },
-      { rootMargin: "200px 0px" } // precarga antes de llegar al final
+      { rootMargin: "200px 0px" }
     );
 
     obs.observe(el);
     return () => obs.unobserve(el);
   }, [filtered.length]);
 
+  // ---- Loading ----
   if (loading) {
     return (
       <div className="flex flex-row flex-wrap justify-center gap-8">
         {Array.from({ length: 6 }).map((_, i) => (
-          <div key={i} className="w-full sm:w-80 h-64 m-4 animate-pulse rounded-2xl bg-white/5 border border-white/10" />
+          <div
+            key={i}
+            className="w-full sm:w-80 h-64 m-4 animate-pulse rounded-2xl bg-[#111] border border-[#b30000]/40"
+          />
         ))}
       </div>
     );
   }
 
+  // ---- Error ----
   if (err) {
     return (
-      <p className="text-red-300 bg-red-900/20 border border-red-500/30 px-3 py-2 rounded">
+      <p className="text-[#ffcccc] bg-[#b30000]/20 border border-[#b30000]/40 px-3 py-2 rounded-lg text-center">
         Error cargando ejercicios: {err}
       </p>
     );
   }
 
+  // ---- No resultados ----
   if (!filtered.length) {
-    return <p className="text-white/70 text-center">No results. Try other filters or search.</p>;
+    return (
+      <p className="text-white/80 text-center italic">
+        No se encontraron resultados. Prueba con otros filtros o búsqueda.
+      </p>
+    );
   }
 
   const visibleItems = filtered.slice(0, visible);
@@ -138,8 +160,15 @@ export default function ExercisesGrid({ search = "", target = "All muscles", bod
     <>
       {/* Contador */}
       <div className="flex justify-center mb-4 text-sm text-white/70">
-        Mostrando <span className="mx-1 font-semibold text-white">{visibleItems.length}</span>
-        de <span className="mx-1 font-semibold text-white">{filtered.length}</span> ejercicios
+        Mostrando{" "}
+        <span className="mx-1 font-semibold text-[#b30000]">
+          {visibleItems.length}
+        </span>
+        de{" "}
+        <span className="mx-1 font-semibold text-white">
+          {filtered.length}
+        </span>{" "}
+        ejercicios
       </div>
 
       {/* Grid */}
@@ -149,12 +178,16 @@ export default function ExercisesGrid({ search = "", target = "All muscles", bod
         ))}
       </div>
 
-      {/* Sentinel para cargar más */}
+      {/* Sentinel */}
       <div
         ref={sentinelRef}
         className="h-12 w-full flex items-center justify-center text-sm text-white/60 select-none"
       >
-        {allLoaded ? "All loaded" : "Loading more…"}
+        {allLoaded ? (
+          <span className="text-[#b30000] font-semibold">Todos cargados</span>
+        ) : (
+          "Cargando más…"
+        )}
       </div>
     </>
   );

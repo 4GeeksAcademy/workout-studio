@@ -1,11 +1,14 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/img/LOGO PRINCIPAL/Recurso 14ldpi.png";
+import logo from "../assets/img/LOGO HORIZONTAL/Recurso 9ldpi.png";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 const Navbar = () => {
   const menuBackdropRef = useRef(null);
   const headerRef = useRef(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+
+  const {store} = useGlobalReducer()
 
   useEffect(() => {
     const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -73,10 +76,11 @@ const Navbar = () => {
     { to: "/", label: "INICIO" },
     { to: "/", label: "MEMBRESIA" },
     { to: "/section", label: "MACHINES" },
-    { to: "/", label: "ACERCA DE" },
+    { to: "/about", label: "ACERCA DE" },
+    ...(store.profile ? [{ to: "/adminpannel", label: "ADMIN" }] : []),
     { to: "/", label: "ENTRENADORES" },
     { to: "/login", label: "CUENTA" },
-    { to: "/ectionroutine", label: "RUTINAS" },
+    { to: "/user", label: "RUTINAS" },
   ];
 
   const NavCenter = () => (
@@ -87,8 +91,9 @@ const Navbar = () => {
       <li><Link to="/">INICIO</Link></li>
       <li><Link to="/member">MEMBRESIA</Link></li>
       <li><Link to="/section">MACHINES</Link></li>
-      <li><Link to="/sectionroutine">RUTINAS</Link></li>
-      <li><Link to="/pruebahome">ACERCA DE</Link></li>
+      {store.profile&&<li><Link to="/adminpannel">ADMIN</Link></li>}
+      <li><Link to="/user">RUTINAS</Link></li>
+      <li><Link to="/about">ACERCA DE</Link></li>
 
     </ul>
   );
@@ -127,7 +132,7 @@ const Navbar = () => {
           <ul>
             <li>
               <Link to="/" aria-label="Inicio">
-                <img className="w-10 h-10 rounded" src={logo} alt="logo" />
+                <img className="w-30 h-10 rounded" src={logo} alt="logo" />
               </Link>
             </li>
           </ul>

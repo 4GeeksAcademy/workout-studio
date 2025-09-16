@@ -9,7 +9,7 @@ import FondosE from "../assets/img/FondosE.jpg"; // cambia a tu imagen si quiere
 
 export default function HomeSection() {
   return (
-    <div className="w-full bg-black text-white selection:bg-amber-300/30 selection:text-white">
+    <div className="w-full bg-black text-white selection:bg-[#b30000]/30 selection:text-white">
       <Hero />
       <SectionPadding>
         <SectionHeader
@@ -81,7 +81,7 @@ function Hero() {
         <div className="max-w-3xl">
           <p className="text-sm tracking-wider uppercase text-white/60">Entrena con claridad</p>
           <h1 className="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">
-            <span className="bg-gradient-to-b from-amber-300 to-amber-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
               Domina tus rutinas
             </span>{" "}
             y alcanza resultados reales
@@ -93,19 +93,19 @@ function Hero() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               to="/routines"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-amber-500 hover:bg-amber-600 text-black transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
             >
               Crear mi rutina <ArrowRight size={18} />
             </Link>
             <Link
               to="/exercises"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-md transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-300/20 bg-gray-300/10 hover:bg-gray-300/20 backdrop-blur-md transition-colors"
             >
               Ver ejercicios <Dumbbell size={18} />
             </Link>
             <Link
               to="/checkout?plan=pro"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-amber-400/40 bg-amber-400/10 hover:bg-amber-400/20 backdrop-blur-md transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#b30000]/40 bg-[#b30000]/10 hover:bg-[#b30000]/20 backdrop-blur-md transition-colors"
             >
               Unirme ahora <BadgeDollarSign size={18} />
             </Link>
@@ -125,7 +125,7 @@ function Hero() {
 }
 function Stat({ num, label }) {
   return (
-    <div className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md px-4 py-3 text-center">
+    <div className="rounded-xl border border-gray-300/20 bg-gray-300/10 backdrop-blur-md px-4 py-3 text-center">
       <div className="text-2xl font-extrabold">{num}</div>
       <div className="text-xs text-white/70">{label}</div>
     </div>
@@ -141,7 +141,7 @@ function SectionHeader({ eyebrow, title, subtitle }) {
     <div className="max-w-screen-2xl mx-auto px-4 mb-6 sm:mb-8">
       <div className="text-sm tracking-wider uppercase text-white/60">{eyebrow}</div>
       <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">
-        <span className="bg-gradient-to-b from-amber-300 to-amber-500 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
           {title}
         </span>
       </h2>
@@ -150,16 +150,16 @@ function SectionHeader({ eyebrow, title, subtitle }) {
   );
 }
 
-/* ------------------ Explore & Routines (placeholders) ------------------ */
+/* ------------------ Explore & Routines ------------------ */
 function GlassCard({ children }) {
   return (
-    <div className="w-full sm:w-80 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-lg p-3 sm:p-4 hover:shadow-2xl transition-shadow">
+    <div className="w-full sm:w-80 rounded-2xl border border-gray-300/20 bg-gray-300/10 backdrop-blur-xl shadow-lg p-3 sm:p-4 hover:shadow-2xl transition-shadow">
       {children}
     </div>
   );
 }
 function Chip({ children }) {
-  return <span className="px-2 py-0.5 rounded-full border border-white/10 bg-white/10">{children}</span>;
+  return <span className="px-2 py-0.5 rounded-full border border-gray-300/20 bg-gray-300/10">{children}</span>;
 }
 function ExplorePreview() {
   const items = Array.from({ length: 6 }).map((_, i) => i);
@@ -168,7 +168,7 @@ function ExplorePreview() {
       <div className="flex flex-row flex-wrap justify-center gap-6">
         {items.map((i) => (
           <GlassCard key={i}>
-            <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-white/5">
+            <div className="aspect-video w-full rounded-xl overflow-hidden border border-gray-300/20 bg-gray-300/10">
               <img
                 src={FondosE}
                 alt=""
@@ -191,7 +191,7 @@ function ExplorePreview() {
       <div className="flex justify-center mt-6">
         <Link
           to="/exercises"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-md transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-gray-300/20 bg-gray-300/10 hover:bg-gray-300/20 backdrop-blur-md transition-colors"
         >
           Ver todos los ejercicios <Compass size={16} />
         </Link>
@@ -210,7 +210,7 @@ function RoutinesPreview() {
       <div className="flex flex-row flex-wrap justify-center gap-6">
         {items.map((r) => (
           <GlassCard key={r.title}>
-            <div className="aspect-video w-full rounded-xl overflow-hidden border border-white/10 bg-white/5">
+            <div className="aspect-video w-full rounded-xl overflow-hidden border border-gray-300/20 bg-gray-300/10">
               <img src={FondosE} alt="" className="w-full h-full object-cover opacity-70" loading="lazy" />
             </div>
             <div className="mt-3">
@@ -220,7 +220,7 @@ function RoutinesPreview() {
             <div className="mt-3">
               <Link
                 to="/routines"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-black font-semibold transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#b30000] hover:bg-red-800 text-white font-semibold transition-colors"
               >
                 Ver rutina <ArrowRight size={16} />
               </Link>
@@ -232,318 +232,187 @@ function RoutinesPreview() {
   );
 }
 
-/* ----------------------------- BENEFITS ----------------------------- */
+/* ------------------ Benefits ------------------ */
 function Benefits() {
+  const features = [
+    { icon: <Sparkles size={20} />, title: "Ejercicios detallados", text: "GIFs y explicaciones paso a paso." },
+    { icon: <ShieldCheck size={20} />, title: "Ejecución segura", text: "Evita errores comunes en la máquina." },
+    { icon: <Zap size={20} />, title: "Rutinas rápidas", text: "Creadas en segundos con IA." },
+    { icon: <Crown size={20} />, title: "Planes pro", text: "Acceso a rutinas avanzadas y más beneficios." },
+  ];
   return (
-    <div id="benefits" className="max-w-screen-2xl mx-auto px-4">
-      <div className="grid sm:grid-cols-3 gap-4">
-        <Benefit
-          icon={<Sparkles size={18} />}
-          title="Diseño claro"
-          text="UI glass/dark con tipografía legible, chips y sombras suaves para enfocarte en lo que importa."
-        />
-        <Benefit
-          icon={<ShieldCheck size={18} />}
-          title="Contenido confiable"
-          text="Datos de ejercicios con guía visual e instrucciones para entrenar con seguridad."
-        />
-        <Benefit
-          icon={<Dumbbell size={18} />}
-          title="Rutinas al instante"
-          text="Plantillas listas para empezar y modales con detalles y pasos."
-        />
-      </div>
-    </div>
-  );
-}
-function Benefit({ icon, title, text }) {
-  return (
-    <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-4 sm:p-5 hover:bg-white/10 transition-colors">
-      <div className="inline-flex items-center gap-2 text-amber-300">
-        {icon}
-        <span className="text-sm tracking-wider uppercase">Ventaja</span>
-      </div>
-      <h3 className="mt-2 text-xl font-bold">{title}</h3>
-      <p className="mt-1 text-white/80 text-sm">{text}</p>
+    <div className="max-w-screen-2xl mx-auto px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {features.map((f) => (
+        <div
+          key={f.title}
+          className="rounded-2xl border border-gray-300/20 bg-gray-300/10 backdrop-blur-md p-6 hover:shadow-xl transition"
+        >
+          <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#b30000]/20 text-[#b30000]">
+            {f.icon}
+          </div>
+          <div className="mt-4 font-semibold">{f.title}</div>
+          <p className="text-sm text-white/70">{f.text}</p>
+        </div>
+      ))}
     </div>
   );
 }
 
-/* ------------------------ LIMITED OFFER BANNER ------------------------ */
+/* ------------------ Limited Offer ------------------ */
 function LimitedOfferBanner() {
   return (
-    <div className="max-w-screen-2xl mx-auto px-4">
-      <div className="rounded-2xl border border-amber-400/30 bg-amber-400/10 backdrop-blur-md p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-3">
-          <Clock className="text-amber-300" size={18} />
-          <p className="text-sm">
-            <span className="font-semibold text-amber-300">Oferta limitada:</span> 30% OFF en plan anual. Cancela cuando quieras.
-          </p>
+    <div className="relative my-12">
+      <div className="max-w-screen-2xl mx-auto px-4">
+        <div className="rounded-3xl border border-[#b30000]/40 bg-gradient-to-r from-[#b30000]/20 to-transparent p-6 sm:p-10 text-center">
+          <h3 className="text-2xl sm:text-3xl font-extrabold">
+            Oferta limitada:{" "}
+            <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
+              20% OFF en tu primer mes
+            </span>
+          </h3>
+          <p className="mt-2 text-white/70">Válido solo esta semana. Aprovecha ahora y comienza a entrenar.</p>
+          <div className="mt-4">
+            <Link
+              to="/checkout?plan=monthly"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
+            >
+              Obtener oferta <ArrowRight size={18} />
+            </Link>
+          </div>
         </div>
-        <Link
-          to="/checkout?plan=pro-annual"
-          className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-600 text-black font-semibold transition-colors"
+      </div>
+    </div>
+  );
+}
+
+/* ------------------ Pricing ------------------ */
+function Pricing() {
+  const plans = [
+    {
+      title: "Mensual",
+      price: "$15",
+      features: ["Acceso ilimitado", "Rutinas básicas", "Ejercicios detallados"],
+      href: "/checkout?plan=monthly",
+    },
+    {
+      title: "Pro Anual",
+      price: "$120",
+      features: ["Todo lo del mensual", "Rutinas Pro avanzadas", "20% de ahorro"],
+      href: "/checkout?plan=annual",
+      highlight: true,
+    },
+  ];
+  return (
+    <div className="max-w-screen-2xl mx-auto px-4 grid gap-6 sm:grid-cols-2">
+      {plans.map((p) => (
+        <div
+          key={p.title}
+          className={`rounded-2xl border ${
+            p.highlight ? "border-[#b30000]/60 bg-[#b30000]/10" : "border-gray-300/20 bg-gray-300/10"
+          } backdrop-blur-md p-6`}
         >
-          Aprovechar ahora <ArrowRight size={16} />
+          <div className="flex items-center justify-between">
+            <h3 className="text-xl font-bold">{p.title}</h3>
+            {p.highlight && (
+              <span className="text-xs px-2 py-0.5 rounded-full bg-[#b30000] text-white">Popular</span>
+            )}
+          </div>
+          <div className="mt-2 text-3xl font-extrabold">{p.price}</div>
+          <ul className="mt-4 space-y-2 text-sm">
+            {p.features.map((f) => (
+              <li key={f} className="flex items-center gap-2">
+                <Check size={16} className="text-[#b30000]" /> {f}
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6">
+            <Link
+              to={p.href}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
+            >
+              Elegir plan <ArrowRight size={18} />
+            </Link>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ------------------ Testimonials ------------------ */
+function Testimonials() {
+  const reviews = [
+    { name: "Ana", text: "Excelente experiencia, ahora entreno con más seguridad y resultados." },
+    { name: "Carlos", text: "Las rutinas listas me ahorran tiempo y me mantienen motivado." },
+    { name: "Lucía", text: "Los ejercicios con guía visual son lo mejor para aprender bien la técnica." },
+  ];
+  return (
+    <div className="max-w-screen-2xl mx-auto px-4 grid gap-6 sm:grid-cols-3">
+      {reviews.map((r) => (
+        <div
+          key={r.name}
+          className="rounded-2xl border border-gray-300/20 bg-gray-300/10 backdrop-blur-md p-6 hover:shadow-lg transition"
+        >
+          <Star size={20} className="text-[#b30000]" />
+          <p className="mt-2 text-sm text-white/80">{r.text}</p>
+          <div className="mt-3 font-semibold">{r.name}</div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ------------------ FAQ ------------------ */
+function FAQ() {
+  const [open, setOpen] = useState(null);
+  const faqs = [
+    { q: "¿Puedo cancelar en cualquier momento?", a: "Sí, sin compromisos ni penalizaciones." },
+    { q: "¿El acceso incluye todas las máquinas?", a: "Sí, acceso completo al área de máquinas." },
+    { q: "¿Tienen entrenadores?", a: "Sí, contamos con asistencia en piso y rutinas guiadas." },
+  ];
+  return (
+    <div className="max-w-screen-lg mx-auto px-4 space-y-4">
+      {faqs.map((f, i) => (
+        <div
+          key={i}
+          className="rounded-xl border border-gray-300/20 bg-gray-300/10 backdrop-blur-md p-4"
+        >
+          <button
+            className="w-full flex items-center justify-between text-left font-semibold"
+            onClick={() => setOpen(open === i ? null : i)}
+          >
+            {f.q}
+            {open === i ? <Minus size={18} /> : <Plus size={18} />}
+          </button>
+          {open === i && <p className="mt-2 text-sm text-white/70">{f.a}</p>}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+/* ------------------ Call To Action ------------------ */
+function CallToAction() {
+  return (
+    <div className="py-16 text-center bg-gradient-to-r from-[#b30000]/20 to-transparent">
+      <h2 className="text-3xl sm:text-4xl font-extrabold">
+        ¿Listo para transformar tu{" "}
+        <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
+          entrenamiento
+        </span>
+        ?
+      </h2>
+      <p className="mt-3 text-white/70 max-w-xl mx-auto">
+        Únete hoy y empieza con rutinas listas y guía visual de cada máquina.
+      </p>
+      <div className="mt-5">
+        <Link
+          to="/checkout?plan=pro"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
+        >
+          Empezar ahora <ArrowRight size={20} />
         </Link>
       </div>
     </div>
-  );
-}
-
-/* ------------------------------- PRICING (mini Home) ------------------------------- */
-function Pricing() {
-  const [annual, setAnnual] = useState(true);
-  const price = (m, y) => (annual ? y : m);
-
-  const plans = [
-    {
-      id: "basic",
-      name: "Basic",
-      tagline: "Empieza hoy",
-      priceMonthly: 19,
-      priceYearly: 190,
-      features: ["Acceso al gym (horario base)", "App de rutinas"],
-      icon: <Dumbbell size={16} />,
-      variant: "basic",
-    },
-    {
-      id: "pro",
-      name: "Pro",
-      tagline: "El más popular",
-      priceMonthly: 39,
-      priceYearly: 390,
-      features: ["Acceso 24/7", "Clases grupales"],
-      icon: <Crown size={16} className="text-amber-300" />,
-      variant: "pro",
-      badge: "Popular",
-      highlight: true,
-    },
-    {
-      id: "elite",
-      name: "Elite",
-      tagline: "Resultados máximos",
-      priceMonthly: 69,
-      priceYearly: 690,
-      features: ["Todo en Pro", "1:1 mensual"],
-      icon: <Zap size={16} />,
-      variant: "elite",
-      badge: "Premium",
-    },
-  ];
-
-  return (
-    <div className="max-w-screen-2xl mx-auto px-4">
-      {/* Toggle mensual/anual compacto */}
-      <div className="flex items-center justify-center gap-3 mb-6">
-        <span className="text-xs text-white/70">Mensual</span>
-        <button
-          onClick={() => setAnnual(v => !v)}
-          className={`relative inline-flex h-6 w-12 items-center rounded-full transition-colors ${
-            annual ? "bg-amber-500" : "bg-white/10"
-          }`}
-          aria-label="Cambiar facturación"
-        >
-          <span
-            className={`inline-block h-5 w-5 transform rounded-full bg-black transition-transform ${
-              annual ? "translate-x-6" : "translate-x-1"
-            }`}
-          />
-        </button>
-        <span className="text-xs text-white/70">
-          Anual <span className="text-amber-300">–30%</span>
-        </span>
-      </div>
-
-      {/* Cards mini (toda la tarjeta navega a /memberships) */}
-      <div className="flex flex-row flex-wrap justify-center gap-5">
-        {plans.map((p, idx) => (
-          <Link
-            key={p.id}
-            to="/memberships"
-            className={[
-              "group relative w-full sm:w-64 rounded-2xl p-4 border backdrop-blur-xl shadow-lg",
-              p.highlight
-                ? "border-amber-400/40 bg-amber-400/10"
-                : "border-white/20 bg-white/10",
-              "transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl",
-              "opacity-0 translate-y-2 animate-[miniIn_420ms_ease_1_forwards]",
-            ].join(" ")}
-            style={{ animationDelay: `${idx * 60}ms` }}
-            aria-label={`Ver plan ${p.name}`}
-          >
-            {/* Badge */}
-            {p.badge && (
-              <span className="absolute right-3 top-3 text-[10px] px-2 py-0.5 rounded-full border border-amber-400/40 bg-amber-400/10 text-amber-300">
-                {p.badge}
-              </span>
-            )}
-
-            {/* Header */}
-            <div className="flex items-center gap-2">
-              {p.icon}
-              <div className="text-base font-bold">{p.name}</div>
-            </div>
-            <div className="text-xs text-white/70">{p.tagline}</div>
-
-            {/* Precio */}
-            <div className="mt-3 flex items-end gap-1">
-              <div className="text-2xl font-extrabold">
-                ${price(p.priceMonthly, p.priceYearly)}
-              </div>
-              <div className="text-white/60 mb-0.5 text-xs">/{annual ? "año" : "mes"}</div>
-            </div>
-
-            {/* Bullets compactos */}
-            <ul className="mt-3 space-y-1.5 text-xs text-white/85">
-              {p.features.map((f) => (
-                <li key={f} className="truncate">• {f}</li>
-              ))}
-            </ul>
-
-            {/* CTA sutil */}
-            <div className="mt-4 inline-flex items-center gap-1 text-sm text-amber-300">
-              Ver planes <ArrowRight size={14} className="transition-transform group-hover:translate-x-0.5" />
-            </div>
-
-            {/* Glow hover */}
-            <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-24 w-40 rounded-full bg-amber-400/10 blur-3xl" />
-            </div>
-
-            <style>{`
-              @keyframes miniIn {
-                from { opacity: 0; transform: translateY(6px); }
-                to   { opacity: 1; transform: translateY(0); }
-              }
-            `}</style>
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-
-/* ------------------------------ TESTIMONIALS ------------------------------ */
-function Testimonials() {
-  const data = [
-    {
-      name: "María G.",
-      role: "Miembro Elite",
-      quote: "En 8 semanas mejoré fuerza y técnica. Las rutinas y guías son clarísimas.",
-      stars: 5,
-    },
-    {
-      name: "Alex R.",
-      role: "Miembro Pro",
-      quote: "El ambiente, el diseño y la app: TODO te invita a entrenar. 10/10.",
-      stars: 5,
-    },
-    {
-      name: "Luis M.",
-      role: "Miembro Basic",
-      quote: "Vine por el precio, me quedé por los resultados. Súper recomendado.",
-      stars: 4,
-    },
-  ];
-  return (
-    <div className="max-w-screen-2xl mx-auto px-4">
-      <div className="flex flex-row flex-wrap justify-center gap-6">
-        {data.map((t) => (
-          <div key={t.name} className="w-full sm:w-[30%] min-w-[260px] rounded-2xl border border-white/10 bg-white/5 backdrop-blur-md p-4 sm:p-5">
-            <div className="flex items-center gap-2 text-amber-300">
-              {Array.from({ length: t.stars }).map((_, i) => <Star key={i} size={16} fill="currentColor" />)}
-            </div>
-            <p className="mt-2 text-white/80 text-sm">{t.quote}</p>
-            <div className="mt-3 text-sm font-semibold">{t.name}</div>
-            <div className="text-xs text-white/60">{t.role}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-/* --------------------------------- FAQ --------------------------------- */
-function FAQ() {
-  const [open, setOpen] = useState(null);
-  const items = [
-    {
-      q: "¿Puedo cancelar cuando quiera?",
-      a: "Sí. Puedes cancelar en cualquier momento desde tu cuenta. No hay permanencias.",
-    },
-    {
-      q: "¿El plan incluye clases?",
-      a: "El plan Pro incluye clases grupales. Elite añade 1:1 mensual con entrenador personal.",
-    },
-    {
-      q: "¿Puedo cambiar de plan después?",
-      a: "Claro. Puedes subir o bajar de plan cuando quieras; el cambio prorratea el siguiente periodo.",
-    },
-    {
-      q: "¿Tienen prueba gratuita?",
-      a: "Lanzamos pruebas y cupones en temporadas. Revisa la oferta limitada actual o contáctanos.",
-    },
-  ];
-
-  return (
-    <div className="max-w-screen-2xl mx-auto px-4">
-      <div className="mx-auto max-w-3xl">
-        {items.map((it, i) => {
-          const isOpen = open === i;
-          return (
-            <div key={it.q} className="rounded-xl border border-white/10 bg-white/5 backdrop-blur-md p-4 mb-3">
-              <button
-                className="w-full flex items-center justify-between text-left"
-                onClick={() => setOpen(isOpen ? null : i)}
-                aria-expanded={isOpen}
-              >
-                <span className="font-semibold">{it.q}</span>
-                {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-              </button>
-              <div className={`grid transition-all duration-200 ${isOpen ? "grid-rows-[1fr] opacity-100 mt-2" : "grid-rows-[0fr] opacity-0"}`}>
-                <div className="overflow-hidden">
-                  <p className="text-sm text-white/80">{it.a}</p>
-                </div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
-}
-
-/* --------------------------- CALL TO ACTION --------------------------- */
-function CallToAction() {
-  return (
-    <section className="py-12 sm:py-16">
-      <div className="max-w-screen-2xl mx-auto px-4">
-        <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 sm:p-10 overflow-hidden relative">
-          <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-b from-amber-300/30 to-amber-500/30 blur-3xl pointer-events-none" />
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight">
-            Construye tu mejor versión
-          </h3>
-          <p className="mt-2 text-white/80 max-w-2xl">
-            Únete hoy, elige tu plan y empieza con una rutina lista. Si no te encanta, cancelas cuando quieras.
-          </p>
-          <div className="mt-5 flex flex-wrap items-center gap-3">
-            <Link
-              to="/checkout?plan=pro"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-amber-500 hover:bg-amber-600 text-black transition-colors"
-            >
-              Unirme ahora <ArrowRight size={18} />
-            </Link>
-            <Link
-              to="/exercises"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-md transition-colors"
-            >
-              Ver ejercicios <Dumbbell size={18} />
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
   );
 }
