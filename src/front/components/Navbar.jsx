@@ -78,7 +78,7 @@ const Navbar = () => {
     { to: "/section", label: "MACHINES" },
     { to: "/about", label: "ACERCA DE" },
     ...(store.profile ? [{ to: "/adminpannel", label: "ADMIN" }] : []),
-    { to: "/", label: "ENTRENADORES" },
+    { to: "/trainer", label: "ENTRENADORES" },
     { to: "/user", label: "RUTINAS" },
     ...(store.profile
     ? [{ to: "/login", label: "CERRAR SESIÓN" }]
