@@ -84,6 +84,8 @@ const LogInSignUp = () => {
       localStorage.setItem("token", data.access_token);
       navigate(`/`);
       return data;
+    }else{
+      alert("Not a valid credential!")
     }
   };
 
@@ -108,7 +110,7 @@ const LogInSignUp = () => {
       </div>
 
       {/* Panel derecho */}
-      <div className="flex flex-col justify-center items-center md:w-1/2 p-6">
+      <div className="flex flex-col  items-center mt-50 md:w-1/2 p-2">
         <h1 className="text-3xl text-[#b30000] font-bold mb-6">
           {logIn ? "Welcome Back!" : "Create Account"}
         </h1>
@@ -117,7 +119,7 @@ const LogInSignUp = () => {
           {/* Log In Form */}
           <form
             onSubmit={handleSubmit}
-            className={`absolute inset-0 flex flex-col gap-4 transition-all duration-500 ${
+            className={`absolute inset-0 flex flex-col gap-2 transition-all duration-500 ${
               logIn
                 ? "opacity-100 translate-x-0 z-20"
                 : "opacity-0 -translate-x-10 z-0 pointer-events-none"
@@ -159,7 +161,7 @@ const LogInSignUp = () => {
           {/* Sign Up Form */}
           <form
             onSubmit={handleSubmit}
-            className={`absolute inset-0 flex flex-col gap-4 transition-all duration-500 ${
+            className={`absolute inset-0 flex flex-col  gap-4 transition-all duration-500 ${
               !logIn
                 ? "opacity-100 translate-x-0 z-20"
                 : "opacity-0 translate-x-10 z-0 pointer-events-none"
