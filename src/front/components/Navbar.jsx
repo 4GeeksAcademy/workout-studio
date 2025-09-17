@@ -74,17 +74,18 @@ const Navbar = () => {
 
   const NAV_ITEMS = [
     { to: "/", label: "INICIO" },
-    { to: "/", label: "MEMBRESIA" },
+    { to: "/member", label: "MEMBRESIA" },
     { to: "/section", label: "MACHINES" },
     { to: "/about", label: "ACERCA DE" },
     ...(store.profile ? [{ to: "/adminpannel", label: "ADMIN" }] : []),
     { to: "/", label: "ENTRENADORES" },
+    { to: "/user", label: "RUTINAS" },
     ...(store.profile
-    ? [{ to: "/logout", label: "CERRAR SESIÓN" }]
+    ? [{ to: "/login", label: "CERRAR SESIÓN" }]
     : [{ to: "/login", label: "CUENTA" }]
   ),
-    { to: "/login", label: "CUENTA" },
-    { to: "/user", label: "RUTINAS" },
+    
+    
   ];
 
   const NavCenter = () => (
