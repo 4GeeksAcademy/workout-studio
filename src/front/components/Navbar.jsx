@@ -132,7 +132,7 @@ const Navbar = () => {
         ref={headerRef}
         id="landing-header"
         className="py-3 px-4 md:px-10 flex items-center sticky top-0 w-full justify-between
-             bg-gradient-to-r from-[#b30000] via-black to-gray-500
+             bg-gradient-to-r from-[#FFB901] via-black to-gray-500
              backdrop-blur-sm transition-colors duration-500 rounded-b-2xl md:rounded-b-3xl
              z-50"
       >
@@ -202,7 +202,7 @@ const Navbar = () => {
       >
         <div
           className="mx-4 pb-3 pt-3 px-3
-                     bg-gradient-to-r from-[#b30000] via-black to-gray-500 backdrop-blur-sm border border-white/10
+                     bg-gradient-to-r from-[#FFB901] via-black to-gray-500 backdrop-blur-sm border border-white/10
                      rounded-2xl shadow-xl"
         >
           <ul className="grid grid-cols-1 gap-1 text-white text-sm">

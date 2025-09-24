@@ -4,7 +4,7 @@ const AboutGyronStudio = () => {
   return (
     <section className="bg-black text-white py-16 px-6">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold mb-6" style={{ color: '#b30000' }}>
+        <h1 className="text-4xl font-bold mb-6" style={{ color: '#FFB901' }}>
           Acerca de Gyron Studio
         </h1>
 
@@ -16,7 +16,7 @@ const AboutGyronStudio = () => {
           Nuestra misión es ayudarte a alcanzar tus metas con un enfoque personalizado, tecnología de punta y un ambiente motivador. Creemos que el movimiento transforma vidas.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-10 mb-4" style={{ color: '#b30000' }}>
+        <h2 className="text-2xl font-semibold mt-10 mb-4" style={{ color: '#FFB901' }}>
           ¿Por qué elegirnos?
         </h2>
         <ul className="list-disc pl-6 text-gray-300">
@@ -26,7 +26,7 @@ const AboutGyronStudio = () => {
           <li>Ambiente inclusivo y motivador</li>
         </ul>
 
-        <h2 className="text-2xl font-semibold mt-10 mb-4" style={{ color: '#b30000' }}>
+        <h2 className="text-2xl font-semibold mt-10 mb-4" style={{ color: '#FFB901' }}>
           Contáctanos
         </h2>
         <p className="text-gray-300">

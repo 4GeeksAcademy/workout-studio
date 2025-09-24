@@ -105,13 +105,13 @@ const LogInSignUp = () => {
   return (
     <div className="flex flex-col md:flex-row w-full h-screen bg-gray-800">
       {/* Panel izquierdo */}
-      <div className="flex justify-center items-center md:w-1/2 bg-[#b30000]/50">
+      <div className="flex justify-center items-center md:w-1/2 bg-[#FFB901]/50">
         <img src={image}  alt="Logo" className="w-50 sm:w-100  " />
       </div>
 
       {/* Panel derecho */}
       <div className="flex flex-col  items-center mt-50 md:w-1/2 p-2">
-        <h1 className="text-3xl text-[#b30000] font-bold mb-6">
+        <h1 className="text-3xl text-[#FFB901] font-bold mb-6">
           {logIn ? "Welcome Back!" : "Create Account"}
         </h1>
 
@@ -143,7 +143,7 @@ const LogInSignUp = () => {
             />
             <button
               type="submit"
-              className="bg-[#b30000] hover:bg-[#ff4d4d] text-white font-bold py-2 px-4 rounded transition-colors"
+              className="bg-[#FFB901] hover:bg-[#ff4d4d] text-white font-bold py-2 px-4 rounded transition-colors"
               onClick={Authorize}
             >
               Log In
@@ -152,7 +152,7 @@ const LogInSignUp = () => {
             <button
               type="button"
               onClick={toggleForm}
-              className="mt-2 text-sm text-[#b30000] hover:text-[#ff4d4d] transition-colors"
+              className="mt-2 text-sm text-[#FFB901] hover:text-[#ff4d4d] transition-colors"
             >
               Don't have an account? Sign Up
             </button>
@@ -201,7 +201,7 @@ const LogInSignUp = () => {
             />
             <button
               type="submit"
-              className="bg-[#b30000] hover:bg-[#ff4d4d] text-white font-bold py-2 px-4 rounded transition-colors"
+              className="bg-[#FFB901] hover:bg-[#ff4d4d] text-white font-bold py-2 px-4 rounded transition-colors"
               onClick={createUser}
             >
               Sign Up
@@ -210,7 +210,7 @@ const LogInSignUp = () => {
             <button
               type="button"
               onClick={toggleForm}
-              className="mt-2 text-sm text-[#b30000] hover:text-[#ff4d4d] transition-colors"
+              className="mt-2 text-sm text-[#FFB901] hover:text-[#ff4d4d] transition-colors"
             >
               Already have an account? Log In
             </button>

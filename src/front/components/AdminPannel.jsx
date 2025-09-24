@@ -10,7 +10,7 @@ const AdminPannel = ()=> {
   return (
     <div className="min-h-screen bg-black text-gray-100 font-sans">
       {/* Header */}
-      <header className="bg-[#b30000] p-4 flex justify-between items-center">
+      <header className="bg-[#FFB901] p-4 flex justify-between items-center">
         <h1 className="text-xl font-bold">🏋️‍♂️ Gym Admin Panel</h1>
         <div className="space-x-4">
           <button className="text-white">🔔</button>
@@ -49,7 +49,7 @@ const AdminPannel = ()=> {
         <main className="flex-1 p-6 bg-gray-900">
           {/* Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-            <div className="bg-[#b30000] p-4 rounded shadow">
+            <div className="bg-[#FFB901] p-4 rounded shadow">
               <h3 className="text-sm text-gray-300">Miembros</h3>
               <p className="text-2xl font-bold text-white">2,540</p>
             </div>
@@ -73,7 +73,7 @@ const AdminPannel = ()=> {
               <h3 className="text-sm text-gray-300 mb-2">Miembros por mes</h3>
               <div className="flex items-end space-x-2 h-32">
                 {membersBars.map((height, i) => (
-                  <div key={i} className="bg-[#b30000] w-6" style={{ height: `${height}px` }}></div>
+                  <div key={i} className="bg-[#FFB901] w-6" style={{ height: `${height}px` }}></div>
                 ))}
               </div>
             </div>
@@ -81,7 +81,7 @@ const AdminPannel = ()=> {
               <h3 className="text-sm text-gray-300 mb-2">Progreso mensual</h3>
               <div className="flex items-end space-x-2 h-32">
                 {progressBars.map((height, i) => (
-                  <div key={i} className="bg-[#b30000] w-6" style={{ height: `${height}px` }}></div>
+                  <div key={i} className="bg-[#FFB901] w-6" style={{ height: `${height}px` }}></div>
                 ))}
               </div>
             </div>

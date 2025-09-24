@@ -9,7 +9,7 @@ import FondosE from "../assets/img/FondosE.jpg"; // cambia a tu imagen si quiere
 
 export default function HomeSection() {
   return (
-    <div className="w-full bg-black text-white selection:bg-[#b30000]/30 selection:text-white">
+    <div className="w-full bg-black text-white selection:bg-[#FFB901]/30 selection:text-white">
       <Hero />
       <SectionPadding>
         <SectionHeader
@@ -81,7 +81,7 @@ function Hero() {
         <div className="max-w-3xl">
           <p className="text-sm tracking-wider uppercase text-white/60">Entrena con claridad</p>
           <h1 className="mt-3 text-4xl sm:text-6xl font-extrabold tracking-tight leading-[1.1]">
-            <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-b from-[#FFB901] to-[#FFB901] bg-clip-text text-transparent">
               Domina tus rutinas
             </span>{" "}
             y alcanza resultados reales
@@ -93,7 +93,7 @@ function Hero() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <Link
               to="/routines"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-[#FFB901] hover:bg-red-800 text-white transition-colors"
             >
               Crear mi rutina <ArrowRight size={18} />
             </Link>
@@ -105,7 +105,7 @@ function Hero() {
             </Link>
             <Link
               to="/checkout?plan=pro"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#b30000]/40 bg-[#b30000]/10 hover:bg-[#b30000]/20 backdrop-blur-md transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-[#FFB901]/40 bg-[#FFB901]/10 hover:bg-[#FFB901]/20 backdrop-blur-md transition-colors"
             >
               Unirme ahora <BadgeDollarSign size={18} />
             </Link>
@@ -141,7 +141,7 @@ function SectionHeader({ eyebrow, title, subtitle }) {
     <div className="max-w-screen-2xl mx-auto px-4 mb-6 sm:mb-8">
       <div className="text-sm tracking-wider uppercase text-white/60">{eyebrow}</div>
       <h2 className="mt-2 text-3xl sm:text-4xl font-extrabold tracking-tight">
-        <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-b from-[#FFB901] to-[#FFB901] bg-clip-text text-transparent">
           {title}
         </span>
       </h2>
@@ -220,7 +220,7 @@ function RoutinesPreview() {
             <div className="mt-3">
               <Link
                 to="/routines"
-                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#b30000] hover:bg-red-800 text-white font-semibold transition-colors"
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#FFB901] hover:bg-red-800 text-white font-semibold transition-colors"
               >
                 Ver rutina <ArrowRight size={16} />
               </Link>
@@ -247,7 +247,7 @@ function Benefits() {
           key={f.title}
           className="rounded-2xl border border-gray-300/20 bg-gray-300/10 backdrop-blur-md p-6 hover:shadow-xl transition"
         >
-          <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#b30000]/20 text-[#b30000]">
+          <div className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FFB901]/20 text-[#FFB901]">
             {f.icon}
           </div>
           <div className="mt-4 font-semibold">{f.title}</div>
@@ -263,10 +263,10 @@ function LimitedOfferBanner() {
   return (
     <div className="relative my-12">
       <div className="max-w-screen-2xl mx-auto px-4">
-        <div className="rounded-3xl border border-[#b30000]/40 bg-gradient-to-r from-[#b30000]/20 to-transparent p-6 sm:p-10 text-center">
+        <div className="rounded-3xl border border-[#FFB901]/40 bg-gradient-to-r from-[#FFB901]/20 to-transparent p-6 sm:p-10 text-center">
           <h3 className="text-2xl sm:text-3xl font-extrabold">
             Oferta limitada:{" "}
-            <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-b from-[#FFB901] to-[#FFB901] bg-clip-text text-transparent">
               20% OFF en tu primer mes
             </span>
           </h3>
@@ -274,7 +274,7 @@ function LimitedOfferBanner() {
           <div className="mt-4">
             <Link
               to="/checkout?plan=monthly"
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-xl font-semibold bg-[#FFB901] hover:bg-red-800 text-white transition-colors"
             >
               Obtener oferta <ArrowRight size={18} />
             </Link>
@@ -308,27 +308,27 @@ function Pricing() {
         <div
           key={p.title}
           className={`rounded-2xl border ${
-            p.highlight ? "border-[#b30000]/60 bg-[#b30000]/10" : "border-gray-300/20 bg-gray-300/10"
+            p.highlight ? "border-[#FFB901]/60 bg-[#FFB901]/10" : "border-gray-300/20 bg-gray-300/10"
           } backdrop-blur-md p-6`}
         >
           <div className="flex items-center justify-between">
             <h3 className="text-xl font-bold">{p.title}</h3>
             {p.highlight && (
-              <span className="text-xs px-2 py-0.5 rounded-full bg-[#b30000] text-white">Popular</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-[#FFB901] text-white">Popular</span>
             )}
           </div>
           <div className="mt-2 text-3xl font-extrabold">{p.price}</div>
           <ul className="mt-4 space-y-2 text-sm">
             {p.features.map((f) => (
               <li key={f} className="flex items-center gap-2">
-                <Check size={16} className="text-[#b30000]" /> {f}
+                <Check size={16} className="text-[#FFB901]" /> {f}
               </li>
             ))}
           </ul>
           <div className="mt-6">
             <Link
               to={p.href}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-semibold bg-[#FFB901] hover:bg-red-800 text-white transition-colors"
             >
               Elegir plan <ArrowRight size={18} />
             </Link>
@@ -353,7 +353,7 @@ function Testimonials() {
           key={r.name}
           className="rounded-2xl border border-gray-300/20 bg-gray-300/10 backdrop-blur-md p-6 hover:shadow-lg transition"
         >
-          <Star size={20} className="text-[#b30000]" />
+          <Star size={20} className="text-[#FFB901]" />
           <p className="mt-2 text-sm text-white/80">{r.text}</p>
           <div className="mt-3 font-semibold">{r.name}</div>
         </div>
@@ -394,10 +394,10 @@ function FAQ() {
 /* ------------------ Call To Action ------------------ */
 function CallToAction() {
   return (
-    <div className="py-16 text-center bg-gradient-to-r from-[#b30000]/20 to-transparent">
+    <div className="py-16 text-center bg-gradient-to-r from-[#FFB901]/20 to-transparent">
       <h2 className="text-3xl sm:text-4xl font-extrabold">
         ¿Listo para transformar tu{" "}
-        <span className="bg-gradient-to-b from-[#b30000] to-[#b30000] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-b from-[#FFB901] to-[#FFB901] bg-clip-text text-transparent">
           entrenamiento
         </span>
         ?
@@ -408,7 +408,7 @@ function CallToAction() {
       <div className="mt-5">
         <Link
           to="/checkout?plan=pro"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-[#b30000] hover:bg-red-800 text-white transition-colors"
+          className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold bg-[#FFB901] hover:bg-red-800 text-white transition-colors"
         >
           Empezar ahora <ArrowRight size={20} />
         </Link>

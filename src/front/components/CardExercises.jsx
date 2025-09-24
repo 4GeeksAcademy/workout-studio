@@ -105,17 +105,17 @@ const CardExercises = ({ data, onToggleFavorite }) => {
             e.stopPropagation();
             toggleFav();
           }}
-          className="absolute right-3 top-3 z-20 h-9 w-9 grid place-items-center rounded-xl border border-white/30 bg-red-900/30 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95"
+          className="absolute right-3 top-3 z-20 h-9 w-9 grid place-items-center rounded-xl border border-white/30 bg-yellow-900/30 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95"
         >
           {favBurst && (
-            <span className="absolute inset-0 rounded-xl animate-ping bg-red-500/20" />
+            <span className="absolute inset-0 rounded-xl animate-ping bg-yellow-500/20" />
           )}
           <svg
             viewBox="0 0 24 24"
             className={`h-5 w-5 transition-all duration-300 ${
               isFav
-                ? "fill-red-500 stroke-red-500 scale-110"
-                : "fill-transparent stroke-red-500"
+                ? "fill-yellow-500 stroke-yellow-500 scale-110"
+                : "fill-transparent stroke-yellow-500"
             }`}
             strokeWidth="1.6"
           >
@@ -136,10 +136,10 @@ const CardExercises = ({ data, onToggleFavorite }) => {
 
           <div className="mt-4 flex flex-col sm:flex-row sm:justify-between items-center gap-3">
             <div className="flex flex-wrap gap-2 pt-3">
-              <span className="inline-block bg-red-800/20 text-red-400 text-xs px-3 py-1 rounded-full border border-red-500/30 backdrop-blur-sm">
+              <span className="inline-block bg-yellow-800/20 text-yellow-400 text-xs px-3 py-1 rounded-full border border-yellow-500/30 backdrop-blur-sm">
                 {bodyPart}
               </span>
-              <span className="inline-block bg-red-900/20 text-red-300 text-xs px-3 py-1 rounded-full border border-red-400/30 backdrop-blur-sm">
+              <span className="inline-block bg-yellow-900/20 text-yellow-300 text-xs px-3 py-1 rounded-full border border-yellow-400/30 backdrop-blur-sm">
                 {target}
               </span>
               <span className="inline-block bg-white/10 text-white text-xs px-3 py-1 rounded-full border border-white/20 backdrop-blur-sm">
@@ -151,7 +151,7 @@ const CardExercises = ({ data, onToggleFavorite }) => {
           <div className="mt-4">
             <button
               onClick={() => setOpen(true)}
-              className="bg-red-500/50 backdrop-blur-lg hover:bg-red-600/50 text-white px-4 py-2 rounded-lg transition duration-300 w-full sm:w-auto"
+              className="bg-yellow-500/50 backdrop-blur-lg hover:bg-yellow-600/50 text-white px-4 py-2 rounded-lg transition duration-300 w-full sm:w-auto"
             >
               View
             </button>

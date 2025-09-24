@@ -128,7 +128,7 @@ export default function ExercisesGrid({
         {Array.from({ length: 6 }).map((_, i) => (
           <div
             key={i}
-            className="w-full sm:w-80 h-64 m-4 animate-pulse rounded-2xl bg-[#111] border border-[#b30000]/40"
+            className="w-full sm:w-80 h-64 m-4 animate-pulse rounded-2xl bg-[#111] border border-[#FFB901]/40"
           />
         ))}
       </div>
@@ -138,7 +138,7 @@ export default function ExercisesGrid({
   // ---- Error ----
   if (err) {
     return (
-      <p className="text-[#ffcccc] bg-[#b30000]/20 border border-[#b30000]/40 px-3 py-2 rounded-lg text-center">
+      <p className="text-[#ffcccc] bg-[#FFB901]/20 border border-[#FFB901]/40 px-3 py-2 rounded-lg text-center">
         Error cargando ejercicios: {err}
       </p>
     );
@@ -161,7 +161,7 @@ export default function ExercisesGrid({
       {/* Contador */}
       <div className="flex justify-center mb-4 text-sm text-white/70">
         Mostrando{" "}
-        <span className="mx-1 font-semibold text-[#b30000]">
+        <span className="mx-1 font-semibold text-[#FFB901]">
           {visibleItems.length}
         </span>
         de{" "}
@@ -184,7 +184,7 @@ export default function ExercisesGrid({
         className="h-12 w-full flex items-center justify-center text-sm text-white/60 select-none"
       >
         {allLoaded ? (
-          <span className="text-[#b30000] font-semibold">Todos cargados</span>
+          <span className="text-[#FFB901] font-semibold">Todos cargados</span>
         ) : (
           "Cargando más…"
         )}

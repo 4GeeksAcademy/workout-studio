@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="relative mt-14 bg-black text-white">
       {/* Glow sutil */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-[38rem] rounded-full bg-[#b30000]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-[38rem] rounded-full bg-[#FFB901]/10 blur-3xl" />
 
       <div className="max-w-screen-2xl mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -14,7 +14,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="inline-flex items-center gap-2">
               <div className="text-lg font-extrabold tracking-tight">
-                <span className="bg-gradient-to-b from-[#ff4d4d] to-[#b30000] bg-clip-text text-transparent">
+                <span className="bg-gradient-to-b from-[#ff4d4d] to-[#FFB901] bg-clip-text text-transparent">
                   Gyron
                 </span>
                 Studio
@@ -28,25 +28,25 @@ export default function Footer() {
             <div className="mt-4 flex items-center gap-3">
               <a
                 href="#"
-                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#b30000]/20 transition"
+                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#FFB901]/20 transition"
               >
                 <Instagram size={16} />
               </a>
               <a
                 href="#"
-                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#b30000]/20 transition"
+                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#FFB901]/20 transition"
               >
                 <Twitter size={16} />
               </a>
               <a
                 href="#"
-                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#b30000]/20 transition"
+                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#FFB901]/20 transition"
               >
                 <Youtube size={16} />
               </a>
               <a
                 href="#"
-                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#b30000]/20 transition"
+                className="p-2 rounded-lg border border-white/10 bg-white/5 hover:bg-[#FFB901]/20 transition"
               >
                 <Mail size={16} />
               </a>
@@ -147,9 +147,9 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="tu@email.com"
-                className="w-full rounded-xl px-3 py-2 bg-white/5 border border-white/10 outline-none focus:border-[#b30000]/50 placeholder:text-white/50"
+                className="w-full rounded-xl px-3 py-2 bg-white/5 border border-white/10 outline-none focus:border-[#FFB901]/50 placeholder:text-white/50"
               />
-              <button className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#b30000] hover:bg-red-800 text-white font-semibold transition">
+              <button className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-[#FFB901] hover:bg-red-800 text-white font-semibold transition">
                 Enviar <ArrowRight size={16} />
               </button>
             </div>

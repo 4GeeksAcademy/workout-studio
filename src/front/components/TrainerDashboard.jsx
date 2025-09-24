@@ -38,7 +38,7 @@ export default function TrainerDashboard() {
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
             <h1 className="text-4xl font-extrabold tracking-tight">
-              <span className="bg-gradient-to-r from-[#b30000] via-gray-300 to-[#b30000] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#FFB901] via-gray-300 to-[#FFB901] bg-clip-text text-transparent">
                 Panel del entrenador
               </span>
             </h1>
@@ -50,7 +50,7 @@ export default function TrainerDashboard() {
             <button className="inline-flex items-center gap-2 px-3 py-2 rounded-xl border border-gray-300/30 bg-gray-300/10 hover:bg-gray-300/20 backdrop-blur-md text-sm transition">
               <Filter size={16} /> Filtros
             </button>
-            <button className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-[#b30000] to-gray-300 text-black font-semibold text-sm transition hover:from-gray-300 hover:to-[#b30000]">
+            <button className="inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-gradient-to-r from-[#FFB901] to-gray-300 text-black font-semibold text-sm transition hover:from-gray-300 hover:to-[#FFB901]">
               <Plus size={16} /> Nuevo alumno
             </button>
           </div>
@@ -72,7 +72,7 @@ export default function TrainerDashboard() {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Buscar por nombre, objetivo o etiqueta…"
-              className="w-full rounded-xl pl-9 pr-3 py-2.5 bg-gray-300/10 border border-gray-300/30 outline-none focus:border-[#b30000] placeholder:text-gray-300"
+              className="w-full rounded-xl pl-9 pr-3 py-2.5 bg-gray-300/10 border border-gray-300/30 outline-none focus:border-[#FFB901] placeholder:text-gray-300"
             />
           </div>
 
@@ -84,7 +84,7 @@ export default function TrainerDashboard() {
                 className={[
                   "px-3 py-1.5 rounded-lg border text-sm transition",
                   filter === p
-                    ? "border-[#b30000]/50 bg-[#b30000]/10 text-[#b30000]"
+                    ? "border-[#FFB901]/50 bg-[#FFB901]/10 text-[#FFB901]"
                     : "border-gray-300/30 bg-gray-300/10 hover:bg-gray-300/20",
                 ].join(" ")}
               >
@@ -141,13 +141,13 @@ function StatCard({ title, value }) {
 function StudentCard({ student, onOpen }) {
   const badgeStyles = {
     Basic: "border-gray-300/30 bg-gray-300/10 text-gray-300",
-    Pro: "border-[#b30000]/50 bg-[#b30000]/10 text-[#b30000]",
-    Elite: "border-[#b30000]/70 bg-[#b30000]/20 text-[#b30000]",
+    Pro: "border-[#FFB901]/50 bg-[#FFB901]/10 text-[#FFB901]",
+    Elite: "border-[#FFB901]/70 bg-[#FFB901]/20 text-[#FFB901]",
   };
 
   return (
     <div className="relative rounded-2xl border border-gray-300/30 bg-gray-300/10 backdrop-blur-md overflow-hidden shadow-lg hover:shadow-2xl transition">
-      <div className="pointer-events-none absolute -right-10 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-[#b30000]/20 to-gray-300/10 blur-3xl" />
+      <div className="pointer-events-none absolute -right-10 -top-8 h-32 w-32 rounded-full bg-gradient-to-br from-[#FFB901]/20 to-gray-300/10 blur-3xl" />
       <div className="p-4">
         <div className="flex items-center gap-3">
           <img
@@ -180,7 +180,7 @@ function StudentCard({ student, onOpen }) {
             </div>
             <div className="mt-2 h-2 rounded-full bg-gray-300/20 overflow-hidden">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-[#b30000] to-gray-300"
+                className="h-full rounded-full bg-gradient-to-r from-[#FFB901] to-gray-300"
                 style={{ width: `${student.progress}%` }}
               />
             </div>
@@ -198,7 +198,7 @@ function StudentCard({ student, onOpen }) {
         <div className="mt-4 flex items-center justify-between">
           <button
             onClick={onOpen}
-            className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg bg-gradient-to-r from-[#b30000] to-gray-300 text-black font-semibold transition hover:from-gray-300 hover:to-[#b30000]"
+            className="inline-flex items-center gap-2 text-sm px-3 py-2 rounded-lg bg-gradient-to-r from-[#FFB901] to-gray-300 text-black font-semibold transition hover:from-gray-300 hover:to-[#FFB901]"
           >
             Ver alumno
           </button>
@@ -234,7 +234,7 @@ function StudentModal({ student, onClose }) {
               <div className="font-bold truncate">{student.name}</div>
               <div className="text-xs text-gray-300 truncate">{student.goal}</div>
             </div>
-            <span className="ml-2 text-[11px] px-2 py-0.5 rounded-full border border-[#b30000]/50 bg-[#b30000]/10 text-[#b30000]">
+            <span className="ml-2 text-[11px] px-2 py-0.5 rounded-full border border-[#FFB901]/50 bg-[#FFB901]/10 text-[#FFB901]">
               {student.plan}
             </span>
           </div>
@@ -258,7 +258,7 @@ function StudentModal({ student, onClose }) {
               className={[
                 "inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm border transition",
                 tab === t.id
-                  ? "border-[#b30000]/50 bg-[#b30000]/10"
+                  ? "border-[#FFB901]/50 bg-[#FFB901]/10"
                   : "border-gray-300/30 bg-gray-300/10 hover:bg-gray-300/20",
               ].join(" ")}
             >
@@ -301,7 +301,7 @@ function OverviewTab({ student }) {
         <div className="mt-4">
           <div className="text-sm text-gray-300 mb-1">Progreso global</div>
           <div className="h-2 rounded-full bg-gray-300/20 overflow-hidden">
-            <div className="h-full rounded-full bg-gradient-to-r from-[#b30000] to-gray-300" style={{ width: `${student.progress}%` }} />
+            <div className="h-full rounded-full bg-gradient-to-r from-[#FFB901] to-gray-300" style={{ width: `${student.progress}%` }} />
           </div>
           <div className="mt-1 text-xs text-gray-300">{student.progress}%</div>
         </div>
@@ -356,7 +356,7 @@ function ProgressTab() {
         <div key={w.w} className="rounded-xl border border-gray-300/30 bg-gray-300/10 p-3">
           <div className="flex justify-between text-xs text-gray-300 mb-1">{w.w} <span>{w.val}%</span></div>
           <div className="h-2 rounded-full bg-gray-300/20 overflow-hidden">
-            <div className="h-full rounded-full bg-gradient-to-r from-[#b30000] to-gray-300" style={{ width: `${w.val}%` }} />
+            <div className="h-full rounded-full bg-gradient-to-r from-[#FFB901] to-gray-300" style={{ width: `${w.val}%` }} />
           </div>
         </div>
       ))}
@@ -368,7 +368,7 @@ function NotesTab() {
   return (
     <textarea
       placeholder="Escribe notas sobre el alumno..."
-      className="w-full h-full resize-none rounded-xl border border-gray-300/30 bg-gray-300/10 p-4 text-sm text-gray-300 outline-none focus:border-[#b30000]"
+      className="w-full h-full resize-none rounded-xl border border-gray-300/30 bg-gray-300/10 p-4 text-sm text-gray-300 outline-none focus:border-[#FFB901]"
     />
   );
 }

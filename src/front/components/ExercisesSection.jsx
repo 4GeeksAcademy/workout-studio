@@ -30,17 +30,17 @@ function Dropdown({ label, value, setValue, options }) {
       <button
         onClick={() => setOpen((v) => !v)}
         className="inline-flex items-center gap-2 px-3 py-2 rounded-md text-[13px]
-                   border border-[#b30000]/30 bg-black 
-                   hover:border-[#b30000]/50 hover:bg-[#b30000]/10
+                   border border-[#FFB901]/30 bg-black 
+                   hover:border-[#FFB901]/50 hover:bg-[#FFB901]/10
                    shadow-sm backdrop-blur-sm transition-colors
-                   focus:outline-none focus-visible:ring-2 focus-visible:ring-[#b30000]/40"
+                   focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FFB901]/40"
         aria-expanded={open}
       >
         <span className="text-white/70">{label}:</span>
         <span className="text-white truncate max-w-[10rem]">{value}</span>
         <ChevronDown
           size={16}
-          className={`text-[#b30000] transition-transform ${open ? "rotate-180" : ""}`}
+          className={`text-[#FFB901] transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
 
@@ -52,7 +52,7 @@ function Dropdown({ label, value, setValue, options }) {
                         : "pointer-events-none opacity-0 scale-95"
                     }`}
       >
-        <div className="overflow-hidden rounded-md border border-[#b30000]/30 bg-black/95 backdrop-blur-md shadow-xl">
+        <div className="overflow-hidden rounded-md border border-[#FFB901]/30 bg-black/95 backdrop-blur-md shadow-xl">
           {options.map((opt) => {
             const active = opt === value;
             return (
@@ -65,8 +65,8 @@ function Dropdown({ label, value, setValue, options }) {
                 className={`w-full text-left px-3 py-2 text-[13px] transition-colors
                            ${
                              active
-                               ? "bg-[#b30000]/20 text-[#ff4d4d]"
-                               : "text-white hover:bg-[#b30000]/10 hover:text-[#ff4d4d]"
+                               ? "bg-[#FFB901]/20 text-[#ff4d4d]"
+                               : "text-white hover:bg-[#FFB901]/10 hover:text-[#ff4d4d]"
                            }`}
               >
                 {opt}
@@ -133,7 +133,7 @@ export default function ExercisesSection() {
       <div className="max-w-screen-2xl mx-auto px-4 pt-8">
         <div className="flex flex-wrap items-start gap-4 mt-20">
           <h1 className="text-5xl font-bold tracking-tight">
-            <span className="bg-gradient-to-b from-[#ff4d4d] to-[#b30000] bg-clip-text text-transparent drop-shadow-sm">
+            <span className="bg-gradient-to-b from-[#ff4d4d] to-[#FFB901] bg-clip-text text-transparent drop-shadow-sm">
               Exercises
             </span>
           </h1>
@@ -141,11 +141,11 @@ export default function ExercisesSection() {
           {/* Search */}
           <div className="relative mt-3">
             <div className="flex items-center gap-2 px-3 py-2 rounded-md text-sm 
-                            border border-[#b30000]/30 bg-black 
+                            border border-[#FFB901]/30 bg-black 
                             shadow-[inset_0_0_0_1px_rgba(179,0,0,0.15)]
                             backdrop-blur-sm focus-within:ring-2 
-                            focus-within:ring-[#b30000]/40 transition">
-              <Search size={16} className="text-[#b30000]" />
+                            focus-within:ring-[#FFB901]/40 transition">
+              <Search size={16} className="text-[#FFB901]" />
               <input
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -155,10 +155,10 @@ export default function ExercisesSection() {
               {search && (
                 <button
                   onClick={() => setSearch("")}
-                  className="ml-1 p-1 rounded hover:bg-[#b30000]/10 transition-colors"
+                  className="ml-1 p-1 rounded hover:bg-[#FFB901]/10 transition-colors"
                   aria-label="Clear search"
                 >
-                  <X size={14} className="text-[#b30000]" />
+                  <X size={14} className="text-[#FFB901]" />
                 </button>
               )}
             </div>
@@ -185,9 +185,9 @@ export default function ExercisesSection() {
               disabled={!canClear}
               className={[
                 "inline-flex items-center gap-2 px-3 py-2 rounded-md text-[13px]",
-                "border border-[#b30000]/30 bg-[#b30000]/10 text-[#ff4d4d]",
+                "border border-[#FFB901]/30 bg-[#FFB901]/10 text-[#ff4d4d]",
                 "backdrop-blur-sm shadow-sm",
-                "hover:bg-[#b30000]/20 hover:border-[#b30000]/50",
+                "hover:bg-[#FFB901]/20 hover:border-[#FFB901]/50",
                 "disabled:opacity-50 disabled:cursor-not-allowed",
                 "transition-colors",
               ].join(" ")}

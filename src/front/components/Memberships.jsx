@@ -55,7 +55,7 @@ export default function Memberships({ onSelect }) {
           { ok: true, text: "Invitados (2/mes)" },
         ],
         cta: "Unirme a Pro",
-        icon: <Crown size={18} className="text-red-400" />,
+        icon: <Crown size={18} className="text-yellow-400" />,
         variant: "pro",
         highlight: true,
         badge: "Popular",
@@ -91,7 +91,7 @@ export default function Memberships({ onSelect }) {
 
   return (
     <section className="relative w-full px-4 sm:px-6 lg:px-10 py-10 bg-black mt-10 text-white">
-      <div className="pointer-events-none absolute -top-20 -right-32 h-56 w-56 rounded-full bg-[#b30000]/10 blur-3xl" />
+      <div className="pointer-events-none absolute -top-20 -right-32 h-56 w-56 rounded-full bg-[#FFB901]/10 blur-3xl" />
       <div className="pointer-events-none absolute -bottom-24 -left-32 h-64 w-64 rounded-full bg-white/5 blur-3xl" />
 
       <div className="mx-auto max-w-6xl flex flex-col items-center gap-6">
@@ -183,7 +183,7 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
     basic:
       "border-white/15 bg-[#151515]/90 hover:[box-shadow:0_0_0_1px_rgba(255,255,255,0.16),0_0_28px_rgba(0,0,0,0.35)]",
     pro:
-      "border-red-500/40 bg-[rgba(179,0,0,0.06)] ring-1 ring-red-500/20 hover:[box-shadow:0_0_0_1px_rgba(179,0,0,0.5),0_0_28px_rgba(179,0,0,0.35)]",
+      "border-yellow-500/40 bg-[rgba(179,0,0,0.06)] ring-1 ring-yellow-500/20 hover:[box-shadow:0_0_0_1px_rgba(179,0,0,0.5),0_0_28px_rgba(179,0,0,0.35)]",
     elite:
       "border-white/15 bg-[#151515]/90 hover:[box-shadow:0_0_0_1px_rgba(255,255,255,0.16),0_0_28px_rgba(0,0,0,0.35)]",
   };
@@ -201,7 +201,7 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
     >
       {plan.badge && (
         <div className="absolute right-3 top-3 z-10">
-          <span className="inline-flex items-center gap-1 rounded-full border border-red-500/40 bg-red-500/15 px-3 py-1 text-xs font-semibold text-red-400">
+          <span className="inline-flex items-center gap-1 rounded-full border border-yellow-500/40 bg-yellow-500/15 px-3 py-1 text-xs font-semibold text-yellow-400">
             {plan.id === "pro" ? <Crown size={14} /> : null}
             {plan.badge}
           </span>
@@ -215,7 +215,7 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
               <Dumbbell size={18} className="text-white" />
             )}
             {plan.variant === "pro" && (
-              <Crown size={18} className="text-red-400" />
+              <Crown size={18} className="text-yellow-400" />
             )}
             {plan.variant === "elite" && (
               <Zap size={18} className="text-white" />
@@ -290,7 +290,7 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
         className={[
           "mt-7 inline-flex items-center justify-center gap-2 rounded-xl w-full px-4 py-3 font-semibold transition-all duration-200 border",
           plan.variant === "pro"
-            ? "bg-[#b30000] text-white border-red-700 hover:bg-red-800"
+            ? "bg-[#FFB901] text-white border-yellow-700 hover:bg-yellow-800"
             : "bg-white/10 text-white border-white/20 hover:bg-white/15",
           "group-hover:translate-y-[-1px]",
         ].join(" ")}
@@ -299,7 +299,7 @@ function PlanCard({ plan, cycle, onSelect, delay = 0 }) {
       </button>
 
       <div className="pointer-events-none absolute -z-10 inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-36 w-56 rounded-full bg-red-500/10 blur-3xl" />
+        <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-36 w-56 rounded-full bg-yellow-500/10 blur-3xl" />
       </div>
 
       <style>{`
